@@ -20,6 +20,6 @@ function Find-Service {
     }
     # Return to the menu if either $path or $name was not specified
     if (-not $path -or -not $name) {
-        Invoke-Menu
+        Show-Menu
     }
 }

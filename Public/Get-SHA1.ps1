@@ -10,5 +10,5 @@ function Get-SHA1 {
     Get-FileHash -Algorithm SHA1 "$path"
 
     # Return to the menu
-    Invoke-Menu
+    Show-Menu
 }

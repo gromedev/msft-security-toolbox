@@ -31,5 +31,7 @@ if ($save -eq "Y") {
 }
 
 # Return to the menu
-Invoke-Menu
+if (-not $path -or -not $name) {
+    Show-Menu
+}
 }

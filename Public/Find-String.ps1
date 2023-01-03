@@ -30,6 +30,6 @@ function Find-String() {
 
     # Return to the menu if either $path or $name was not specified
     if (-not $path -or -not $file) {
-        Invoke-Menu
+        Show-Menu
     }
 }
