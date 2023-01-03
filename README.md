@@ -13,7 +13,12 @@ Search for a string within a file: This function searches for a specified string
 Find process: This function prompts the user to enter a process name, retrieves information about the process using the Get-Process cmdlet, and displays the information in a table using the Format-Table cmdlet. If the user confirms that they want to kill the process, the function uses the Stop-Process cmdlet to stop the process.
 
 # Usage
-To use the scripts, open a PowerShell prompt and navigate to the directory where the scripts are stored. Then, you can invoke the functions by typing the function name followed by any required arguments.
+
+Run Show-Menu and select an option. 
+
+OR
+
+Alternatively, you can invoke the functions by typing the function name followed by any required arguments.
 
 For example:
   Find-String -path "C:\temp" -file "foo.txt" -csvPath "C:\temp\results.csv"
