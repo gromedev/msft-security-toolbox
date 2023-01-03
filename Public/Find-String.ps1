@@ -12,7 +12,7 @@ function Find-String() {
         $file = Read-Host "Enter the name of the file you are looking for"
     }
 
-    $results = Get-ChildItem -Path $path -r | Select-String –pattern $file
+    $results = Get-ChildItem -Path $path -Recurse | Select-String -pattern $file
 
     # Display the results in the terminal
     $results
@@ -29,7 +29,7 @@ function Find-String() {
     }
 
     # Return to the menu if either $path or $name was not specified
-    if (-not $path -or -not $name) {
+    if (-not $path -or -not $file) {
         Invoke-Menu
     }
 }
