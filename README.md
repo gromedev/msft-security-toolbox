@@ -44,6 +44,7 @@ Find-BitLockerRecoveryKey
 
 Invoke-FirewallRule 
 
+Convert-AzureAdObject -ObjectId "8defd89d-7ce3-4050-9aa9-1f8eb60c4c2c"
 
 
 # Contributing

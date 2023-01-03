@@ -16,7 +16,7 @@ function Invoke-PortScan {
     $start, $end = $range -split '-'
 
     # Scan ports in the specified range
-    $start..$end | % {
+    $start..$end | ForEach-Object {
         # Try to connect to the current port
         $connection = New-Object Net.Sockets.TcpClient
         $connection.Connect($ip, $_)

@@ -14,6 +14,7 @@ function Show-Menu {
     Write-Host "11. Get-UninstallKey"
     Write-Host "12. Find-BitLockerRecoveryKey"
     Write-Host "13. New-SelfSignedCert"
+    Write-Host "14. Convert AzureAD Object to/from SID"
     Write-Host "q. Quit"
     Write-Host ""
     Write-Host "Enter a number or 'q' to quit, or 'man' followed by a number to display a description of an option:"
@@ -39,6 +40,7 @@ function Show-Menu {
             '11' { Get-UninstallKey }
             '12' { Find-BitLockerRecoveryKey }
             '13' { New-SelfSignedCert }
+            '14' { Convert-AzureAdObject }
             'q' { return }
             default { Write-Host "Invalid option." }
         }
@@ -62,6 +64,7 @@ function Show-Menu {
             '11' { Get-Help Get-UninstallKey }
             '12' { Get-Help Find-BitLockerRecoveryKey }
             '13' { Get-Help New-SelfSignedCert }
+            '14' { Get-Help Convert-AzureAdObject }
             default { Write-Host "Invalid option." }
         }
     }
