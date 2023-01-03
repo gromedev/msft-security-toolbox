@@ -18,8 +18,9 @@ Find process: This function prompts the user to enter a process name, retrieves 
 To use the scripts, open a PowerShell prompt and navigate to the directory where the scripts are stored. Then, you can invoke the functions by typing the function name followed by any required arguments.
 
 For example:
-Find-String -path "C:\temp" -file "foo.txt" -csvPath "C:\temp\results.csv"
-Find-String -path "C:\temp" -file "foo.txt" -csvPath "C:\temp\results.csv"
+  Find-String -path "C:\temp" -file "foo.txt" -csvPath "C:\temp\results.csv"
+  
+  Find-String -path "C:\temp" -file "foo.txt" -csvPath "C:\temp\results.csv"
 Get-WebFile -UserAgent "" -url "http://example.com/foo.txt" $path "C:\temp\foo.txt"
 Find-Process -name "foo"
 Find-Service -name "foo"
