@@ -19,7 +19,7 @@ function Find-Process {
         Stop-Process -Name $name
     }
     # Return to the menu if either $path or $name was not specified
-    if (-not $path -or -not $name) {
+    if (-not $name) {
         Invoke-Menu
     }
 }

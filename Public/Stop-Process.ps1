@@ -7,4 +7,5 @@ function Stop-Process {
     $Process | Foreach-Object {
         $_.Kill()
     }
+    Show-Menu
 }

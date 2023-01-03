@@ -39,7 +39,7 @@ function Invoke-PingSweep() {
         $results | Export-Csv -Path $csv -NoTypeInformation -Delimiter "`t"
     }
     # Return to the menu if either $path or $name was not specified
-    if (-not $path -or -not $name) {
+    if (-not $range -or -not $port) {
         Show-Menu
     }
 }

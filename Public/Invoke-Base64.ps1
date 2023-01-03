@@ -36,7 +36,7 @@ function Invoke-Base64 {
         }
     }
 
-    if (-not $path -or -not $name) {
+    if (-not $inputVar -or -not $inputType) {
         Show-Menu
     }
 }

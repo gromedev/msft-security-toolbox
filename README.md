@@ -46,6 +46,11 @@ Invoke-FirewallRule
 
 Convert-AzureAdObject -ObjectId "8defd89d-7ce3-4050-9aa9-1f8eb60c4c2c"
 
+Get-Whois example.com
+
+Alternatively, you can pipe a list of domain names to the function: "example.com", "example.net", "example.org" | Get-Whois
+
+
 
 # Contributing
 We welcome contributions to the scripts. If you have an idea for a new feature or have found a bug, please open an issue on the repository's issue tracker.

@@ -20,4 +20,5 @@ function Get-ProcessUsingFile {
     else {
         Write-Host "No processes found with the file open."
     }
+    Show-Menu
 }

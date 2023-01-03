@@ -52,7 +52,7 @@ function Invoke-FirewallRule {
         Write-Output "Invalid action. Please specify either 'list' or 'modify'."
     }
     # Return to the menu if either $path or $name was not specified
-    if (-not $path -or -not $name) {
+    if (-not $action -or -not $name) {
         Show-Menu
     }
 }

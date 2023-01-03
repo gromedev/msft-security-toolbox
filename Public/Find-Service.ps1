@@ -19,7 +19,7 @@ function Find-Service {
         Stop-Service -Name $name
     }
     # Return to the menu if either $path or $name was not specified
-    if (-not $path -or -not $name) {
+    if (-not $name) {
         Show-Menu
     }
 }

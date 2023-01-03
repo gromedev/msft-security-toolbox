@@ -32,7 +32,7 @@ function Get-WebFile {
         Write-Output "An error occurred: $_"
     }        
     # Return to the menu if either $path or $name was not specified
-    if (-not $path -or -not $name) {
+    if (-not $url -or -not $path) {
         Show-Menu
     }
 }
