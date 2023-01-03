@@ -2,7 +2,7 @@
 Module containing a collection of useful functions. 
 
 
-![logo](./assets/logo.png](https://github.com/gromedev/PowerShellCheatSheet/blob/main/Assets/logo.png))
+![logo](https://github.com/gromedev/PowerShellCheatSheet/blob/main/Assets/logo.png?raw=true)
 
 
 # Functions
