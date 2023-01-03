@@ -1,10 +1,8 @@
 # PowerShellCheatSheet
 Module containing a collection of useful functions. 
 
-Replace "image alt text" with a brief description of the image, and replace "../assets/logo.png" with the path to the image file.
 
-
-![alt text](./assets/logo.png)
+![logo](./assets/logo.png](https://github.com/gromedev/PowerShellCheatSheet/blob/main/Assets/logo.png))
 
 
 # Functions
