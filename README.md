@@ -14,6 +14,8 @@ Find process: This function prompts the user to enter a process name, retrieves 
 
 # Usage
 
+Import-Module .\PowerShellCheatSheet -Force
+
 Run Show-Menu and select an option. 
 
 OR
