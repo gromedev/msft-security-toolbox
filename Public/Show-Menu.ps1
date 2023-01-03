@@ -1,6 +1,7 @@
 function Show-Menu {
     # Display menu options
     Write-Host "Menu:"
+    #Write-Host "0. Launch GUI"   
     Write-Host "1. Find-File"
     Write-Host "2. Find-String"
     Write-Host "3. Find-Process"
@@ -20,59 +21,13 @@ function Show-Menu {
     Write-Host "17. Get Defender Logs."
     Write-Host "18. Set MAC Address."
     Write-Host "19. Get whois."
+    #Set-FileNamesByDate
+    #Set-StringInFiles
+    #Set-WindowsEdition
+    #Set-RegistryValue
+    #Set-WindowsEdition
     Write-Host "q. Quit"
     Write-Host ""
     Write-Host "Enter a number or 'q' to quit, or 'man' followed by a number to display a description of an option:"
 
-    # Read user input
-    $choice = Read-Host
-    Write-Host ""
-
-    # Check if choice is a number or 'q'
-    if ($choice -match '^[0-9]$' -or $choice -eq 'q') {
-        # Execute selected function
-        switch ($choice) {
-            '1' { Find-File }
-            '2' { Find-String }
-            '3' { Find-Process }
-            '4' { Find-Service }
-            '5' { Invoke-PingSweep }
-            '6' { Invoke-PortScan }
-            '7' { Get-SHA1 }
-            '8' { Invoke-Base64 }
-            '9' { Get-WebFile }
-            '10' { Save-Video }
-            '11' { Get-UninstallKey }
-            '12' { Find-BitLockerRecoveryKey }
-            '13' { New-SelfSignedCert }
-            '14' { Convert-AzureAdObject }
-            '15' { Get-ProcessUsingFile }
-            'q' { return }
-            default { Write-Host "Invalid option." }
-        }
-    }
-    elseif ($choice -match '^man \d+$') {
-        # Get option number from choice
-        $option = $choice.Substring(4)
-
-        # Display description of selected option
-        switch ($option) {
-            '1' { Get-Help Find-File }
-            '2' { Get-Help Find-String }
-            '3' { Get-Help Find-Process }
-            '4' { Get-Help Find-Service }
-            '5' { Get-Help Invoke-PingSweep }
-            '6' { Get-Help Invoke-PortScan }
-            '7' { Get-Help Get-SHA1 }
-            '8' { Get-Help Invoke-Base64 }
-            '9' { Get-Help Get-WebFile }
-            '10' { Get-Help Save-Video }
-            '11' { Get-Help Get-UninstallKey }
-            '12' { Get-Help Find-BitLockerRecoveryKey }
-            '13' { Get-Help New-SelfSignedCert }
-            '14' { Get-Help Convert-AzureAdObject }
-            '15' { Get-Help Get-ProcessUsingFile }
-            default { Write-Host "Invalid option." }
-        }
-    }
 }
