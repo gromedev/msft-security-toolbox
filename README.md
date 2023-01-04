@@ -1,5 +1,5 @@
 # PowerShellCheatSheet
-Module containing a collection of useful functions. 
+Module containing a collection of simple yet useful functions. 
 
 Import-Module .\PowerShellCheatSheet -Force; Show-Menu
 
