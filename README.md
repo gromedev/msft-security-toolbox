@@ -1,6 +1,8 @@
 # PowerShellCheatSheet
 Module containing a collection of useful functions. 
 
+Import-Module .\PowerShellCheatSheet -Force; Show-Menu
+
 
 ![logo](https://github.com/gromedev/PowerShellCheatSheet/blob/main/Assets/logo.png)
 
