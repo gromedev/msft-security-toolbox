@@ -1,0 +1,45 @@
+[void][System.Reflection.Assembly]::LoadWithPartialName('System.Windows.Forms')
+
+# Create form
+$form = New-Object System.Windows.Forms.Form
+$form.Text = "My Form"
+$form.Size = New-Object System.Drawing.Size(600, 400)
+
+# Create a textbox for the terminal
+$terminal = New-Object System.Windows.Forms.RichTextBox
+$terminal.Location = New-Object System.Drawing.Size(10, 10)
+$terminal.Size = New-Object System.Drawing.Size(550, 300)
+$terminal.Multiline = $true
+$terminal.WordWrap = $false
+$terminal.ScrollBars = "Vertical"
+$terminal.AcceptsTab = $true
+
+# Create buttons for each function in the module
+$findFileButton = New-Object System.Windows.Forms.Button
+$findFileButton.Location = New-Object System.Drawing.Size(10, 320)
+$findFileButton.Size = New-Object System.Drawing.Size(75, 23)
+$findFileButton.Text = "Find-File"
+$findProcessButton = New-Object System.Windows.Forms.Button
+$findProcessButton.Location = New-Object System.Drawing.Size(90, 320)
+$findProcessButton.Size = New-Object System.Drawing.Size(75, 23)
+$findProcessButton.Text = "Find-Process"
+
+# Add buttons for the rest of the functions here
+
+# Find-File
+$findFileButton.Add_Click({
+        # Prompt the user for the file name
+        $fileName = [System.Windows.Forms.InputBox]::Show("Enter the file name:")
+        # Call the Find-File function with the specified file name
+        $result = Find-File -FileName $fileName
+        # Add the command and the result to the terminal
+        $terminal.AppendText("Find-File -FileName $fileNamen$resultn")
+    })
+
+#Create a textbox for the user to enter the file name
+$fileNameTextBox = New-Object System.Windows.Forms.TextBox
+$fileNameTextBox.Location = New-Object System.Drawing.Size(170, 320)
+$fileNameTextBox.Size = New-Object System.Drawing.Size(150, 20)
+
+#Add the textbox to the form
+$form

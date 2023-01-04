@@ -1,33 +1,50 @@
-function Show-Menu {
-    # Display menu options
-    Write-Host "Menu:"
-    #Write-Host "0. Launch GUI"   
-    Write-Host "1. Find-File"
-    Write-Host "2. Find-String"
-    Write-Host "3. Find-Process"
-    Write-Host "4. Find-Service"
-    Write-Host "5. Invoke-PingSweep"
-    Write-Host "6. Invoke-PortScan"
-    Write-Host "7. Get-SHA1"
-    Write-Host "8. Invoke-Base64"
-    Write-Host "9. Get-WebFile"
-    Write-Host "10. Save-Video"
-    Write-Host "11. Get-UninstallKey"
-    Write-Host "12. Find-BitLockerRecoveryKey"
-    Write-Host "13. New-SelfSignedCert"
-    Write-Host "14. Convert AzureAD Object to/from SID"
-    Write-Host "15. Find which process is using a file."
-    Write-Host "16. Disable Defender."
-    Write-Host "17. Get Defender Logs."
-    Write-Host "18. Set MAC Address."
-    Write-Host "19. Get whois."
-    #Set-FileNamesByDate
-    #Set-StringInFiles
-    #Set-WindowsEdition
-    #Set-RegistryValue
-    #Set-WindowsEdition
-    Write-Host "q. Quit"
-    Write-Host ""
-    Write-Host "Enter a number or 'q' to quit, or 'man' followed by a number to display a description of an option:"
+function Show-Menu() {
 
+    # Welcome message
+    Write-Output ""
+    Write-Output "--------------------"
+    Write-Output "PowerShellCheatSheet"
+    Write-Output " Select an option: "
+    Write-Output "--------------------"
+    Write-Output ""
+    # Define the menu options
+    $menuOptions = @(
+        @{ Label = "String manipulation"; Options = "Show-StringManipulationMenu" },
+        @{ Label = "Defender"; Options = "Show-DefenderMenu" },
+        @{ Label = "Networking"; Options = "Show-NetworkingMenu" },
+        @{ Label = "Windows"; Options = "Show-WindowsMenu" },
+        @{ Label = "Quit"; Options = "break" }
+    )
+
+    # Display the menu and prompt the user for a selection
+    $selectedOption = $null
+    while ($null -eq $selectedOption) {
+        Write-Output "Select one of the following menus:"
+        $menuIndex = 1
+        foreach ($menu in $menuOptions) {
+            Write-Output "$menuIndex) $($menu.Label)"
+            $menuIndex++
+        }
+        $selection = Read-Host "Enter your selection"
+
+        # Check if the selection is a valid option
+        if ($selection -ge 1 -and $selection -lt $menuIndex) {
+            $selectedOption = $menuOptions[$selection - 1].Options
+        } else {
+            Write-Output "Invalid selection"
+        }
+    }
+
+    if ($selectedOption -eq "Quit") {
+        # Quit the script
+        exit
+    } else {
+        # Execute the selected option and handle errors
+        try {
+            Invoke-Expression $selectedOption
+        } catch {
+            Write-Output "There was an error. Returning to menu"
+            $selectedOption = $null
+        }
+    }
 }
