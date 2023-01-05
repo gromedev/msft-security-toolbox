@@ -1,10 +1,16 @@
 # PowerShellCheatSheet
 Module containing a collection of simple yet useful functions. 
+- All functions are authored by thomas@grome.dev 
+- Unless otherwise specified in the comments.
 
-NOTE: Disable-Defender.ps1 triggers a Virus warning in Defender. 
+**NOTE:** Disable-Defender.ps1 triggers a Virus warning in Defender. 
+- Apropos so far this is the only function "borrowed" from another developer :)
+- Visit https://github.com/jeremybeaume
 
+```
+Set-ExecutionPolicy -executionpolicy Bypass
 Import-Module .\PowerShellCheatSheet -Force; Show-Menu
-
+```
 
 ![logo](https://github.com/gromedev/PowerShellCheatSheet/blob/main/Assets/logo.png)
 
@@ -90,25 +96,27 @@ For example:
   
   Find-String -path "C:\temp" -file "foo.txt" -csvPath "C:\temp\results.csv"
   
-Get-WebFile -UserAgent "" -url "http://example.com/foo.txt" $path "C:\temp\foo.txt"
+  Get-WebFile -UserAgent "" -url "http://example.com/foo.txt" $path "C:\temp\foo.txt"
 
-Find-Process -name "foo"
+  Find-Process -name "foo"
 
-Find-Service -name "foo"
+  Find-Service -name "foo"
 
-Get-SHA1 -path "C:\temp\foo.txt"
+  Get-SHA1 -path "C:\temp\foo.txt"
 
-Invoke-PingSweep -range "10.10.10.1-10.10.10.255" -port 80 -csv "C:\temp\results.csv"
+  Invoke-PingSweep -range "10.10.10.1-10.10.10.255" -port 80 -csv "C:\temp\results.csv"
 
-Invoke-PortScan -ip "10.10.10.10" -range "1-1024"
+  Invoke-PortScan -ip "10.10.10.10" -range "1-1024"
 
-Find-BitLockerRecoveryKey 
+  Find-BitLockerRecoveryKey 
 
-Invoke-FirewallRule 
+  Invoke-FirewallRule 
 
-Convert-AzureAdObject -ObjectId "8defd89d-7ce3-4050-9aa9-1f8eb60c4c2c"
+  Convert-AzureAdObject -ObjectId "8defd89d-7ce3-4050-9aa9-1f8eb60c4c2c"
 
-Get-Whois example.com --> Alternatively, you can pipe a list of domain names to the function: "example.com", "example.net", "example.org" | Get-Whois
+  Get-Whois example.com
+  
+  "example.com", "example.net", "example.org" | Get-Whois
 ```
 
 ## Task list
