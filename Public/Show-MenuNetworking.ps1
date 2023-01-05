@@ -1,5 +1,7 @@
 function Show-MenuNetworking() {
     Write-Output "`n`nNetworking:"
+    Write-Output "(Bug: Reurn to menu and Help options not working.))"
+    Write-Output "---------------"
     # Define the menu options
     $menuOptions = @(
         @{ Name = "Invoke-PingSweep"; Cmdlet = "Invoke-PingSweep" },
@@ -8,8 +10,8 @@ function Show-MenuNetworking() {
         @{ Name = "Spoof MacAddress"; Cmdlet = "Set-MacAddress" },
         @{ Name = "Invoke-FirewallRule"; Cmdlet = "Invoke-FirewallRule" },
         @{ Name = "Download file from URL"; Cmdlet = "Get-WebFile" },
-        @{ Name = "Download video from website"; Cmdlet = "Save-Video" },
-        @{ Name = "Return to main menu"; Cmdlet = "Show-Menu" }
+        @{ Name = "Download video from website"; Cmdlet = "Save-Video" }
+        #@{ Name = "Return to main menu"; Cmdlet = "Show-Menu" },
         #@{ Name = "Get help"; Cmdlet = "Get-Help" }
     )
 
@@ -39,18 +41,20 @@ function Show-MenuNetworking() {
             # Clear the host and return to the main menu
             #Clear-Host
             Show-Menu
-            break
         }
         "Get help" {
-            # Get the name of the function to get help for
-            $functionName = Read-Host "Enter the name of the function you want to get help for"
-            try {
-                Get-Help $functionName
-            }
-            catch {
-                Write-Output "There was an error getting help for $functionName. Returning to menu"
-                Show-MenuNetworking
-            }
+            $commands = @(
+                "Invoke-PingSweep",
+                "Invoke-PortScan",
+                "Get-Whois",
+                "Set-MacAddress",
+                "Invoke-FirewallRule",
+                "Get-WebFile",
+                "Save-Video"
+            )
+            $commands | ForEach-Object { Get-Help $_ | Format-List -Property Name, Synopsis }
+            Write-Output ""
+            Show-MenuNetworking
         }
         default {
             # Execute the selected option and handle errors

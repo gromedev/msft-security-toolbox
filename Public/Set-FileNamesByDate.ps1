@@ -10,7 +10,7 @@ function Set-FileNamesByDate {
         [string]$Format = "yyyyMMdd",
         [string]$Filter = (Read-Host "Enter the file filter:")
         )
-
+        Write-Output "`nSet-FileNamesByDate"
     if (-not $Path) {
         $Path = Read-Host "Enter the path:"
     }

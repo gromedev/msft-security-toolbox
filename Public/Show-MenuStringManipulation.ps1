@@ -1,5 +1,6 @@
 function Show-MenuStringManipulation() {
     Write-Output "`n`nFile and String manipulation:"
+    Write-Output "---------------------------------"
     # Define the menu options
     $menuOptions = @(
         @{ Name = "Search for filename"; Cmdlet = "Find-File" },
@@ -8,8 +9,8 @@ function Show-MenuStringManipulation() {
         @{ Name = "Set filenames by date"; Cmdlet = "Set-FileNamesByDate" },
         @{ Name = "Invoke Base64"; Cmdlet = "Invoke-Base64" },
         @{ Name = "Get SHA1"; Cmdlet = "Get-SHA1" },
-        @{ Name = "Return to main menu"; Cmdlet = "Show-Menu" }
-        #@{ Name = "Get help"; Cmdlet = "Get-Help" }
+        @{ Name = "Return to main menu"; Cmdlet = "Show-Menu" },
+        @{ Name = "Get help"; Cmdlet = "Get-Help" }
     )
 
     # Display the menu and prompt the user for a selection
@@ -36,20 +37,22 @@ function Show-MenuStringManipulation() {
     switch ($selectedOption.Name) {
         "Return to main menu" {
             # Clear the host and return to the main menu
-            #Clear-Host
+            #Clear--Host
             Show-Menu
-            break
+            
         }
         "Get help" {
-            # Get the name of the function to get help for
-            $functionName = Read-Host "Enter the name of the function you want to get help for"
-            try {
-                Get-Help $functionName
-            }
-            catch {
-                Write-Output "There was an error getting help for $functionName. Returning to menu"
-                Show-MenuStringManipulation
-            }
+            $commands = @(
+                "Find-File", 
+                "Find-String", 
+                "Set-StringInFiles", 
+                "Set-FileNamesByDate",
+                "Invoke-Base64", 
+                "Get-SHA1"
+            )
+            $commands | ForEach-Object { Get-Help $_ | Format-List -Property Name, Synopsis }
+            Write-Output ""
+            Show-MenuStringManipulation
         }
         default {
             # Execute the selected option and handle errors
@@ -58,6 +61,7 @@ function Show-MenuStringManipulation() {
             }
             catch {
                 Write-Output "There was an error executing $($selectedOption.Name). Returning to menu"
+                Write-Output "`n"
                 Show-MenuStringManipulation
             }
         }

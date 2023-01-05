@@ -4,7 +4,7 @@ function Get-WebFile {
         $url,
         $path
     )
-
+    Write-Output "`nGet-WebFile"
     if (-not $userAgent) {
         # Prompt the user to enter the user agent
         $userAgent = Read-Host "Enter the user agent (leave blank to use Edge User Agent)"

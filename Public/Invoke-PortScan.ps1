@@ -7,7 +7,7 @@ function Invoke-PortScan {
         $ip,
         $range
     )
-
+    Write-Output "`nInvoke-PortScan"
     # Prompt user for IP address and port range if they were not specified
     if (-not $ip) {
         $ip = Read-Host "Enter the IP address: "

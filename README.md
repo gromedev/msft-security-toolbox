@@ -10,84 +10,77 @@ Import-Module .\PowerShellCheatSheet -Force; Show-Menu
 # Functions (So far...)
 
 Use Get-Help for more details:
+String and File manipulation:
+-----------------------------
+  Find-File
 
-Convert-AzureAdObject
+  Find-String
 
-Disable-Defender     
+  Set-StringInFiles
 
-Enable-Defender      
+  Set-FileNamesByDate
 
-Find-BitLockerRecoveryKey
+  Invoke-Base64
 
-Find-File
+  Get-SHA1
 
-Find-Process
 
-Find-Service
 
-Find-String
+Azure and Defender:
+-----------------------------
+  Enable-Defender
 
-Get-DefenderLogs
+  Disable-Defender
 
-Get-ProcessUsingFile
+  Get-DefenderLogs
 
-Get-SHA1
+  Find-BitLockerRecoveryKey
 
-Get-UninstallKey
+  Convert-AzureAdObject
 
-Get-WebFile
+  Invoke-ForceIntuneSync
 
-Get-Whois
 
-Install-WSL
-
-Invoke-Base64
-
-Invoke-FirewallRule
-
-Invoke-ForceIntuneSync
-
+Networking:
+-----------------------------
 Invoke-PingSweep
 
 Invoke-PortScan
 
-New-KeyLockedOEMSLPEDevice
-
-New-SelfSignedCert
-
-Save-Video
-
-Set-ChangeWindowsEdition
-
-Set-FileNamesByDate
+Get-Whois
 
 Set-MacAddress
 
+Invoke-FirewallRule
+
+Get-WebFile
+
+Save-Video
+
+
+Windows:
+-----------------------------
+Find-Process
+
+Get-ProcessUsingFile
+
+Find-Service
+
+Get-UninstallKey
+
+New-SelfSignedCert
+
+Set-ChangeWindowsEdition
+
 Set-RegistryValue
-
-Set-StringInFiles
-
-Set-WindowsEdition
-
-Set-WindowsSelectedEdition
-
-Show-Menu
-
-Show-MenuDefender
-
-Show-MenuLinuxWSL
-
-Show-MenuNetworking
-
-Show-MenuStringManipulation
-
-Show-MenuWindows
 
 Start-RemoteConnection
 
-Stop-Process
+Linux WSL
+-----------------------------
+  Install-WSL
 
-Test-WindowsRegistryValue
+
 
 
 # Usage

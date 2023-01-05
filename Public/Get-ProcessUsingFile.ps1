@@ -6,6 +6,7 @@ function Get-ProcessUsingFile {
 
     if ($processes) {
         # Display list of processes that have the file open
+        Write-Output "`nGet-ProcessUsingFile"
         Write-Host "The following processes have the file open:"
         $processes | Format-Table Id, ProcessName
 

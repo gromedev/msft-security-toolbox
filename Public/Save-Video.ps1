@@ -9,7 +9,7 @@ function Save-Video() {
         $path,
         $name
     )
-
+    Write-Output "`nSave-Video"
     if (-not $url) {
         $url = Read-Host "Enter the URL of the video you want to download"
     }

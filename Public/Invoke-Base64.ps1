@@ -8,7 +8,7 @@
         $inputType,
         $outputType
     )
-
+    Write-Output "`nInvoke-Base64"
     # Check if input is a string or a file
     if ($inputType -eq "string") {
         # Check if the user wants to encode or decode the input string

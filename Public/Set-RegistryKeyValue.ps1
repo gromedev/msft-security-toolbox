@@ -1,13 +1,14 @@
-<# Set the registry key for the Outlook DelegateWastebasketStyle value
+<# 
 .SYNOPSIS
-
+    Set the registry key for the Outlook DelegateWastebasketStyle value
+    
 .PARAMETERS
   -registryPath: The registry path to the key. Default is "HKCU:\SOFTWARE\Microsoft\Office\16.0\Outlook\Options\General"
   -name: The name of the key. Default is "DelegateWastebasketStyle"
   -value: The value to set for the key. Default is "4"
   -type: The data type for the key value. Default is "DWORD"
 #>
-function Set-RegistryKey {
+function Set-RegistryKeyValue {
     [CmdletBinding()]
     param(
         [Parameter(ValueFromPipeline)]
@@ -19,7 +20,7 @@ function Set-RegistryKey {
         [Parameter(ValueFromPipeline)]
         [string]$type = "DWORD"
     )
-
+    Write-Output "`nSet-RegistryKey"
     if ($registryPath -eq $null) {
         $registryPath = Read-Host "Enter the registry path for the key (e.g. HKCU:\SOFTWARE\Microsoft\Office\16.0\Outlook\Options\General):"
     }

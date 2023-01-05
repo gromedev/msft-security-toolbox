@@ -7,6 +7,7 @@ function New-SelfSignedCert {
         $Subject,
         $DnsName
     )
+    Write-Output "`nNew-SelfSignedCert"
     # Check if the subject was specified
     if (-not $Subject) {
         # If the subject was not specified, prompt the user for it

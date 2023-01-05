@@ -1,5 +1,7 @@
 function Show-MenuWindows() {
     Write-Output "`n`nWindows:"
+    Write-Output "(Bug: Reurn to menu and Help options not working.))"
+    Write-Output "------------"
     # Define the menu options
     $menuOptions = @(
         @{ Name = "Find-Process"; Cmdlet = "Find-Process" },
@@ -8,8 +10,9 @@ function Show-MenuWindows() {
         @{ Name = "Get-UninstallKey"; Cmdlet = "Get-UninstallKey" },
         @{ Name = "New-SelfSignedCert"; Cmdlet = "New-SelfSignedCert" },
         @{ Name = "Set-WindowsSelectedEdition"; Cmdlet = "Set-ChangeWindowsEdition" },
-        @{ Name = "Set-RegistryValue"; Cmdlet = "Set-RegistryValue" },
-        @{ Name = "Return to main menu"; Cmdlet = "Show-Menu" }
+        @{ Name = "Set-RegistryKeyValue"; Cmdlet = "Set-RegistryKeyValue" },
+        @{ Name = "Start-RemoteConnection"; Cmdlet = "Start-RemoteConnection" }
+        #@{ Name = "Return to main menu"; Cmdlet = "Show-Menu" },
         #@{ Name = "Get help"; Cmdlet = "Get-Help" }
     )
 
@@ -39,25 +42,31 @@ function Show-MenuWindows() {
             # Clear the host and return to the main menu
             #Clear-Host
             Show-Menu
-            break
         }
         "Get help" {
-            # Check if the user has entered a function name or a number
-            if ($selection -is [int]) {
-                # If the user has entered a number, get the function name corresponding to that number
-                $functionName = $menuOptions[$selection - 1].Name
-            }
-            else {
-                # If the user has entered a function name, use that as the function name
-                $functionName = $selection
-            }
+            $commands = @(
+                "Find-Process",
+                "Get-ProcessUsingFile",
+                "Find-Service",
+                "Get-UninstallKey",
+                "New-SelfSignedCert",
+                "Set-ChangeWindowsEdition",
+                "Set-RegistryKeyValue",
+                "Start-RemoteConnection"
+            )
+            $commands | ForEach-Object { Get-Help $_ | Format-List -Property Name, Synopsis }
+            Write-Output ""
+            Show-MenuWindows
+        }
+        default {
+            # Execute the selected option and handle errors
             try {
-                Get-Help $functionName
+                Invoke-Expression $selectedOption.Cmdlet
             }
             catch {
-                Write-Output "There was an error getting help for $functionName. Returning to menu"
-                Show-MenuWindows
+                Write-Output "There was an error executing $($selectedOption.Name). Returning to menu"
+                Show-MenuDefender
             }
-        }         
+        }
     }
 }

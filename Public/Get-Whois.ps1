@@ -8,7 +8,7 @@ function Get-Whois {
         [Parameter(Mandatory, ValueFromPipeline)]
         [string]$DomainName
     )
-
+    Write-Output "`nGet-Whois"
     if (-not $DomainName) {
         $DomainName = Read-Host "Enter the domain name:"
     }

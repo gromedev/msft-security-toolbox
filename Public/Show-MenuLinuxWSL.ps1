@@ -1,10 +1,11 @@
 function Show-MenuLinuxWSL() {
     Write-Output "`n`nLinux WSL:"
+    Write-Output "--------------"
     # Define the menu options
     $menuOptions = @(
         @{ Name = "Detect and/or Install WSL"; Cmdlet = "Install-WSL" },
-        @{ Name = "Return to main menu"; Cmdlet = "Show-Menu" }
-        #@{ Name = "Get help"; Cmdlet = "Get-Help" }
+        @{ Name = "Return to main menu"; Cmdlet = "Show-Menu" },
+        @{ Name = "Get help"; Cmdlet = "Get-Help" }
     )
 
     # Display the menu and prompt the user for a selection
@@ -33,28 +34,24 @@ function Show-MenuLinuxWSL() {
             # Clear the host and return to the main menu
             #Clear-Host
             Show-Menu
-            break
         }
         "Get help" {
-            # Get the name of the function to get help for
-            $functionName = Read-Host "Enter the name of the function you want to get help for"
-            try {
-                Get-Help $functionName
-            }
-            catch {
-                Write-Output "There was an error getting help for $functionName. Returning to menu"
-                Show-MenuLinuxWSL
-            }
+            $commands = @(
+                "Install-WSL"
+            )
+            $commands | ForEach-Object { Get-Help $_ | Format-List -Property Name, Synopsis }
+            Write-Output ""
+            Show-MenuLinuxWSL
         }
-        default {
-            # Execute the selected option and handle errors
-            try {
-                Invoke-Expression $selectedOption.Cmdlet
-            }
-            catch {
-                Write-Output "There was an error executing $($selectedOption.Name). Returning to menu"
-                Show-MenuLinuxWSL
-            }
+    }
+    default {
+        # Execute the selected option and handle errors
+        try {
+            Invoke-Expression $selectedOption.Cmdlet
+        }
+        catch {
+            Write-Output "There was an error executing $($selectedOption.Name). Returning to menu"
+            Show-MenuLinuxWSL
         }
     }
 }

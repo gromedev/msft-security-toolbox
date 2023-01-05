@@ -3,7 +3,7 @@
     Detects whether the Windows Subsystem for Linux (WSL) is installed on the system and gives the user the option to install it if it is not detected.
 #>
 function Install-WSL {
-    Write-Output "Very much a WIP. Future version will include the option to install a distro e.g. Ubuntu, Kali, etc."
+    Write-Output "`nVery much a WIP. Future version will include the option to install a distro e.g. Ubuntu, Kali, etc."
     # Check if WSL is installed
     if (!(Get-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux)) {
         # WSL is not installed

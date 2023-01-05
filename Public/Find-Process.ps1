@@ -6,7 +6,7 @@ function Find-Process {
     param(
         $name
     )
-
+    Write-Output "`nFind-Process"
     if (-not $name) {
         $name = Read-Host "Enter the name of the process you want to query (or enter 'all' to query all processes)"
     }

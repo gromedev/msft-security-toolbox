@@ -8,7 +8,7 @@ function Set-MacAddress {
         [Parameter(ValueFromPipeline)]
         [string]$MacAddress = $null
     )
-
+    Write-Output "`nSet-MacAddress"
     # Check if the function is being run as part of a pipeline or not
     if ($MacAddress -eq $null) {
         # If not, prompt the user to enter a MAC address

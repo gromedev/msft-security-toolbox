@@ -9,7 +9,7 @@ function Invoke-PingSweep() {
         $port,
         $csv
     )
-
+    Write-Output "`nInvoke-PingSweep"
     # Prompt user for IP range and port if they were not specified
     if (-not $range) {
         $range = Read-Host "Enter IP range (e.g. 10.10.10.1-10.10.10.255): "

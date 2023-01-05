@@ -7,7 +7,7 @@ function Find-Service {
     param(
         $name
     )
-
+    Write-Output "`nFind-Service"
     if (-not $name) {
         $name = Read-Host "Enter the name of the service you want to query (or enter 'all' to query all services)"
     }

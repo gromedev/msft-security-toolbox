@@ -5,6 +5,7 @@
 function Convert-AzureAdObject {
     param([String] $ObjectId)
 
+    Write-Output "`nConvert-AzureAdObject"
     # Convert Azure AD object to SID
     function ConvertToSID {
         $bytes = [Guid]::Parse($ObjectId).ToByteArray()
@@ -28,6 +29,7 @@ function Convert-AzureAdObject {
     }
 
     # Display menu options
+    Write-Output "Convert-AzureAdObject"
     Write-Host "Choose a conversion:"
     Write-Host "1. Azure AD object to SID"
     Write-Host "2. SID to Azure AD object"

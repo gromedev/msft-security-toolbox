@@ -13,7 +13,7 @@ function Invoke-FirewallRule {
         $direction,
         $profiles
     )
-
+    Write-Output "`nInvoke-FirewallRule"
     # Prompt user for action and rule properties if they were not specified
     if (-not $action) {
         $action = Read-Host "Enter the action (list or modify): "

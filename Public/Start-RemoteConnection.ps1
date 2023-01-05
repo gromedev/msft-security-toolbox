@@ -11,7 +11,7 @@ Function Start-RemoteConnection
         [Parameter(Mandatory=$false)]
         [System.Management.Automation.PSCredential]$Credential
     )
-
+    Write-Output "`nStart-RemoteConnection"
     if (-Not $ComputerName) {
         Add-Type -AssemblyName Microsoft.VisualBasic
         $ComputerName = [Microsoft.VisualBasic.Interaction]::InputBox("Enter Hostname or IP", "Hostname", "$ComputerName")

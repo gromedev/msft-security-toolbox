@@ -3,6 +3,7 @@
     This function searches for a string ($FindString) in all files in a specified path ($path) that match a certain filter ($Filter) and replaces it with a new string ($ReplaceString). It reads the contents of each file, performs the replacement, and writes the modified contents back to the file. The function provides feedback to the user by displaying the old and new contents of each file.
 #>
 function Set-StringInFiles() {
+    Write-Output "`nSet-StringInFiles"
     $FindString = 'example'
     $ReplaceString = "$InfoSizeLimit = $VM | Select Value"
     $Filter = "*.txt"

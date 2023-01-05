@@ -9,8 +9,8 @@ function Show-Menu() {
     Write-Output ""
     Write-Output "--------------------"
     Write-Output "PowerShellCheatSheet"
-    Write-Output " Select an option: "
     Write-Output "--------------------"
+    Write-Output " Select an option: "
     Write-Output ""
     # Define the menu options
     $menuOptions = @(

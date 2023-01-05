@@ -4,6 +4,7 @@ Output the current Windows edition and prompt the user to change it
 #>
 
 function Set-ChangeWindowsEdition {
+    Write-Output "`nSet-ChangeWindowsEdition"
     try {
         # Set the Windows edition
         Set-WindowsEdition

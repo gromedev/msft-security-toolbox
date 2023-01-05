@@ -10,7 +10,7 @@ function Find-BitLockerRecoveryKey {
     if (-not $drive) {
         $drive = Read-Host "Enter the drive letter (e.g. C:)"
     }
-
+    Write-Output "`nFind-BitLockerRecoveryKey"
     # Get the BitLocker volume for the specified drive
     $bitlockerVolume = Get-BitLockerVolume -MountPoint $drive
 

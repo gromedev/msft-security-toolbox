@@ -5,6 +5,7 @@ function Get-UninstallKey {
         $HKCU,
         $HKCU_WOW
     )
+    Write-Output "`nGet-UninstallKey"
     if (-not $HKLM) {
         $HKLM = Read-Host "Enter the path to search in the HKLM hive (e.g. 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*')"
     }

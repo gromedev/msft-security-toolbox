@@ -8,7 +8,7 @@ function Find-File {
         $name,
         $csvPath
     )
-
+    Write-Output "`nFind-File"
     if (-not $path) {
         $path = Read-Host "Enter the path to search for the file"
     }

@@ -1,5 +1,11 @@
+<#
+.SYNOPSIS
+    This function is used to extract and store Microsoft Defender logs on a local machine. It runs a command prompt command to extract the logs and stores the resulting cab file in a specified directory. The function then checks if the cab file was successfully moved to the directory and opens it 
+#>
+
 function Show-MenuDefender() {
     Write-Output "`n`nAzure and Defender:"
+    Write-Output "-----------------------"
     # Define the menu options
     $menuOptions = @(
         @{ Name = "Enable Defender"; Cmdlet = "Enable-Defender" },
@@ -8,8 +14,8 @@ function Show-MenuDefender() {
         @{ Name = "Find BitLocker recovery key"; Cmdlet = "Find-BitLockerRecoveryKey" },
         @{ Name = "Convert-AzureAdObject"; Cmdlet = "Convert-AzureAdObject" },
         @{ Name = "Force Local Intune Sync"; Cmdlet = "Invoke-ForceIntuneSync" },
-        @{ Name = "Return to main menu"; Cmdlet = "Show-Menu" }
-        #@{ Name = "Get help"; Cmdlet = "Get-Help" }
+        @{ Name = "Return to main menu"; Cmdlet = "Show-Menu" },
+        @{ Name = "Get help"; Cmdlet = "Get-Help" }
     )
 
     # Display the menu and prompt the user for a selection
@@ -40,15 +46,16 @@ function Show-MenuDefender() {
             Show-Menu
         }
         "Get help" {
-            # Get the name of the function to get help for
-            $functionName = Read-Host "Enter the name of the function you want to get help for"
-            try {
-                Get-Help $functionName
-            }
-            catch {
-                Write-Output "There was an error getting help for $functionName. Returning to menu"
-                Show-MenuDefender
-            }
+            $commands = @(
+                "Enable-Defender",
+                "Disable-Defender",
+                "Get-DefenderLogs",
+                "Find-BitLockerRecoveryKey",
+                "Convert-AzureAdObject"
+            )
+            $commands | ForEach-Object { Get-Help $_ | Format-List -Property Name, Synopsis }
+            Write-Output ""
+            Show-MenuDefender
         }
         default {
             # Execute the selected option and handle errors
