@@ -11,10 +11,11 @@ Import-Module .\PowerShellCheatSheet -Force; Show-Menu
 
 Use Get-Help for more details:
 
-
 Convert-AzureAdObject
 
-Disable-Defender
+Disable-Defender     
+
+Enable-Defender      
 
 Find-BitLockerRecoveryKey
 
@@ -38,21 +39,25 @@ Get-WebFile
 
 Get-Whois
 
+Install-WSL
+
 Invoke-Base64
 
 Invoke-FirewallRule
 
 Invoke-ForceIntuneSync
 
-Invoke-GUI.wip
-
 Invoke-PingSweep
 
 Invoke-PortScan
 
+New-KeyLockedOEMSLPEDevice
+
 New-SelfSignedCert
 
 Save-Video
+
+Set-ChangeWindowsEdition
 
 Set-FileNamesByDate
 
@@ -64,11 +69,27 @@ Set-StringInFiles
 
 Set-WindowsEdition
 
+Set-WindowsSelectedEdition
+
 Show-Menu
 
-Show-MenuSubOptions
+Show-MenuDefender
+
+Show-MenuLinuxWSL
+
+Show-MenuNetworking
+
+Show-MenuStringManipulation
+
+Show-MenuWindows
+
+Start-RemoteConnection
 
 Stop-Process
+
+Test-WindowsRegistryValue
+
+
 # Usage
 
 Import-Module .\PowerShellCheatSheet -Force
