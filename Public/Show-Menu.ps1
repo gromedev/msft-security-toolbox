@@ -1,3 +1,8 @@
+<#
+.SYNOPSIS
+    Main menu for PowerShellCheatSheet module. 
+#>
+
 function Show-Menu() {
 
     # Welcome message
@@ -9,11 +14,12 @@ function Show-Menu() {
     Write-Output ""
     # Define the menu options
     $menuOptions = @(
-        @{ Label = "String manipulation"; Options = "Show-StringManipulationMenu" },
-        @{ Label = "Defender"; Options = "Show-DefenderMenu" },
-        @{ Label = "Networking"; Options = "Show-NetworkingMenu" },
-        @{ Label = "Windows"; Options = "Show-WindowsMenu" },
-        @{ Label = "Quit"; Options = "break" }
+        @{ Label = "File and String manipulation"; Options = "Show-MenuStringManipulation" },
+        @{ Label = "Azure and Defender"; Options = "Show-MenuDefender" },
+        @{ Label = "Networking"; Options = "Show-MenuNetworking" },
+        @{ Label = "Windows"; Options = "Show-MenuWindows" },
+        @{ Label = "Linux WSL"; Options = "Show-MenuLinuxWSL" },
+        @{ Label = "Quit"; Options = "Exit-PSSession" }
     )
 
     # Display the menu and prompt the user for a selection

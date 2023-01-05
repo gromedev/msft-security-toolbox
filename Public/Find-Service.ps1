@@ -1,3 +1,8 @@
+<#
+.SYNOPSIS
+    Find-Service is a function that displays information about a specified service, or all services if no name is provided, and allows the user to stop the service if desired. 
+    e.g. Find-Service -name "wuauserv"  will display information about the service named "wuauserv", which is the Windows Update service. It will also prompt the user to stop the service if they wish.
+#>
 function Find-Service {
     param(
         $name
@@ -19,7 +24,9 @@ function Find-Service {
         Stop-Service -Name $name
     }
     # Return to the menu if either $path or $name was not specified
-    if (-not $name) {
-        Show-Menu
-    }
+    #if (-not $name) {
+    #    Show-Menu
+    #}
+    Write-Output "`n`n"
+    Show-Menu
 }

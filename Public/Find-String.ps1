@@ -1,4 +1,8 @@
-function Find-String() {
+
+<#
+.SYNOPSIS
+    This function searches a specified file path for a file with a specified name, and displays the results in the terminal.  If the string is found in a file, the file is included in the search results. The search results can be displayed in the terminal and optionally saved to a CSV file.
+#>function Find-String() {
     param(
         $path,
         $file,
@@ -29,7 +33,8 @@ function Find-String() {
     }
 
     # Return to the menu if either $path or $name was not specified
-    if (-not $path -or -not $file) {
+    #if (-not $path -or -not $file) {
+        Write-Output "`n`n"
         Show-Menu
-    }
+    #}
 }

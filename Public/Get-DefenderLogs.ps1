@@ -17,5 +17,6 @@ Else
     {
     Write-Host "Something Went Wrong"
     }
-Show-Menu
+    Write-Output "`n`n"
+    Show-Menu
 }

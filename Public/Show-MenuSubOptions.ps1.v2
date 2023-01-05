@@ -1,0 +1,332 @@
+########################################
+function Show-StringManipulationMenu() {
+    Write-Output "`n`n"
+    # Define the menu options
+    $menuOptions = @(
+        @{ Name = "Search for filename"; Cmdlet = "Find-File" },
+        @{ Name = "Search for string"; Cmdlet = "Find-String" },
+        @{ Name = "Set string in files"; Cmdlet = "Set-StringInFiles" },
+        @{ Name = "Set filenames by date"; Cmdlet = "Set-FileNamesByDate" },
+        @{ Name = "Invoke Base64"; Cmdlet = "Invoke-Base64" },
+        @{ Name = "Get SHA1"; Cmdlet = "Get-SHA1" },
+        @{ Name = "Return to main menu"; Cmdlet = "Show-Menu" },
+        @{ Name = "Get help"; Cmdlet = "Get-Help" }
+    )
+
+    # Display the menu and prompt the user for a selection
+    $selectedOption = $null
+    while ($null -eq $selectedOption) {
+        Write-Output "Select one of the following options:"
+        $menuIndex = 1
+        foreach ($menuOption in $menuOptions) {
+            Write-Output "$menuIndex) $($menuOption.Name)"
+            $menuIndex++
+        }
+        $selection = Read-Host "Enter your selection"
+
+        # Check if the selection is a valid option
+        if ($selection -ge 1 -and $selection -le $menuIndex) {
+            $selectedOption = $menuOptions[$selection - 1]
+        }
+        else {
+            Write-Output "Invalid selection"
+            $selectedOption = $null
+        }
+    }
+
+    switch ($selectedOption.Name) {
+        "Return to main menu" {
+            # Clear the host and return to the main menu
+            #Clear-Host
+            Show-Menu
+            break
+        }
+        "Get help" {
+            # Get the name of the function to get help for
+            $functionName = Read-Host "Enter the name of the function you want to get help for"
+            try {
+                Get-Help $functionName
+            }
+            catch {
+                Write-Output "There was an error getting help for $functionName. Returning to menu"
+                Show-StringManipulationMenu
+            }
+        }
+        default {
+            # Execute the selected option and handle errors
+            try {
+                Invoke-Expression $selectedOption.Cmdlet
+            }
+            catch {
+                Write-Output "There was an error executing $($selectedOption.Name). Returning to menu"
+                Show-WinLinixMenu
+            }
+        }
+    }
+}
+
+
+########################################
+function Show-DefenderMenu() {
+    Write-Output "`n`n"
+    # Define the menu options
+    $menuOptions = @(
+        @{ Name = "Enable Defender"; Cmdlet = "Enable-Defender" },
+        @{ Name = "Disable Defender"; Cmdlet = "Disable-Defender" },
+        @{ Name = "Get Defender logs"; Cmdlet = "Get-DefenderLogs" },
+        @{ Name = "Find BitLocker recovery key"; Cmdlet = "Find-BitLockerRecoveryKey" },
+        @{ Name = "Convert-AzureAdObject"; Cmdlet = "Convert-AzureAdObject" },
+        @{ Name = "Force Local Intune Sync"; Cmdlet = "Invoke-ForceIntuneSync" },
+        @{ Name = "Return to main menu"; Cmdlet = "Show-Menu" },
+        @{ Name = "Get help"; Cmdlet = "Get-Help" }
+    )
+
+    # Display the menu and prompt the user for a selection
+    $selectedOption = $null
+    while ($null -eq $selectedOption) {
+        Write-Output "Select one of the following options:"
+        $menuIndex = 1
+        foreach ($menuOption in $menuOptions) {
+            Write-Output "$menuIndex) $($menuOption.Name)"
+            $menuIndex++
+        }
+        $selection = Read-Host "Enter your selection"
+ 
+        # Check if the selection is a valid option
+        if ($selection -ge 1 -and $selection -le $menuIndex) {
+            $selectedOption = $menuOptions[$selection - 1]
+        }
+        else {
+            Write-Output "Invalid selection"
+            $selectedOption = $null
+        }
+    }
+ 
+    switch ($selectedOption.Name) {
+        "Return to main menu" {
+            # Clear the host and return to the main menu
+            #Clear-Host
+            Show-Menu
+        }
+        "Get help" {
+            # Get the name of the function to get help for
+            $functionName = Read-Host "Enter the name of the function you want to get help for"
+            try {
+                Get-Help $functionName
+            }
+            catch {
+                Write-Output "There was an error getting help for $functionName. Returning to menu"
+                Show-DefenderMenu
+            }
+        }
+        default {
+            # Execute the selected option and handle errors
+            try {
+                Invoke-Expression $selectedOption.Cmdlet
+            }
+            catch {
+                Write-Output "There was an error executing $($selectedOption.Name). Returning to menu"
+                Show-DefenderMenu
+            }
+        }
+    }
+}
+
+
+########################################
+function Show-NetworkingMenu() {
+    Write-Output "`n`n"
+    # Define the menu options
+    $menuOptions = @(
+        @{ Name = "Invoke-PingSweep"; Cmdlet = "Invoke-PingSweep" },
+        @{ Name = "Invoke-PortScan"; Cmdlet = "Invoke-PortScan" },
+        @{ Name = "Get-Whois"; Cmdlet = "Get-Whois" },
+        @{ Name = "Spoof MacAddress"; Cmdlet = "Set-MacAddress" },
+        @{ Name = "Invoke-FirewallRule"; Cmdlet = "Invoke-FirewallRule" },
+        @{ Name = "Download file from URL"; Cmdlet = "Get-WebFile" },
+        @{ Name = "Download video from website"; Cmdlet = "Save-Video" },
+        @{ Name = "Return to main menu"; Cmdlet = "Show-Menu" },
+        @{ Name = "Get help"; Cmdlet = "Get-Help" }
+    )
+
+    # Display the menu and prompt the user for a selection
+    $selectedOption = $null
+    while ($null -eq $selectedOption) {
+        Write-Output "Select one of the following options:"
+        $menuIndex = 1
+        foreach ($menuOption in $menuOptions) {
+            Write-Output "$menuIndex) $($menuOption.Name)"
+            $menuIndex++
+        }
+        $selection = Read-Host "Enter your selection"
+
+        # Check if the selection is a valid option
+        if ($selection -ge 1 -and $selection -le $menuIndex) {
+            $selectedOption = $menuOptions[$selection - 1]
+        }
+        else {
+            Write-Output "Invalid selection"
+            $selectedOption = $null
+        }
+    }
+
+    switch ($selectedOption.Name) {
+        "Return to main menu" {
+            # Clear the host and return to the main menu
+            #Clear-Host
+            Show-Menu
+            break
+        }
+        "Get help" {
+            # Get the name of the function to get help for
+            $functionName = Read-Host "Enter the name of the function you want to get help for"
+            try {
+                Get-Help $functionName
+            }
+            catch {
+                Write-Output "There was an error getting help for $functionName. Returning to menu"
+                Show-NetworkingMenu
+            }
+        }
+        default {
+            # Execute the selected option and handle errors
+            try {
+                Invoke-Expression $selectedOption.Cmdlet
+            }
+            catch {
+                Write-Output "There was an error executing $($selectedOption.Name). Returning to menu"
+                Show-NetworkingMenu
+            }
+        }
+    }
+}
+
+
+
+########################################
+function Show-WindowsMenu() {
+    Write-Output "`n`n"
+    # Define the menu options
+    $menuOptions = @(
+        @{ Name = "Find-Process"; Cmdlet = "Find-Process" },
+        @{ Name = "Get-ProcessUsingFile"; Cmdlet = "Get-ProcessUsingFile" },
+        @{ Name = "Find-Service"; Cmdlet = "Find-Service" },
+        @{ Name = "Get-UninstallKey"; Cmdlet = "Get-UninstallKey" },
+        @{ Name = "New-SelfSignedCert"; Cmdlet = "New-SelfSignedCert" },
+        @{ Name = "Set-WindowsSelectedEdition"; Cmdlet = "Set-ChangeWindowsEdition" },
+        @{ Name = "Set-RegistryValue"; Cmdlet = "Set-RegistryValue" },
+        @{ Name = "Return to main menu"; Cmdlet = "Show-Menu" },
+        @{ Name = "Get help"; Cmdlet = "Get-Help" }
+    )
+
+    # Display the menu and prompt the user for a selection
+    $selectedOption = $null
+    while ($null -eq $selectedOption) {
+        Write-Output "Select one of the following options:"
+        $menuIndex = 1
+        foreach ($menuOption in $menuOptions) {
+            Write-Output "$menuIndex) $($menuOption.Name)"
+            $menuIndex++
+        }
+        $selection = Read-Host "Enter your selection"
+
+        # Check if the selection is a valid option
+        if ($selection -ge 1 -and $selection -le $menuIndex) {
+            $selectedOption = $menuOptions[$selection - 1]
+        }
+        else {
+            Write-Output "Invalid selection"
+            $selectedOption = $null
+        }
+    }
+
+    switch ($selectedOption.Name) {
+        "Return to main menu" {
+            # Clear the host and return to the main menu
+            #Clear-Host
+            Show-Menu
+            break
+        }
+        "Get help" {
+            # Check if the user has entered a function name or a number
+            if ($selection -is [int]) {
+                # If the user has entered a number, get the function name corresponding to that number
+                $functionName = $menuOptions[$selection - 1].Name
+            }
+            else {
+                # If the user has entered a function name, use that as the function name
+                $functionName = $selection
+            }
+            try {
+                Get-Help $functionName
+            }
+            catch {
+                Write-Output "There was an error getting help for $functionName. Returning to menu"
+                Show-WindowsMenu
+            }
+        }         
+    }
+}
+
+
+########################################
+function Show-WinLinuxMenu() {
+    Write-Output "`n`n"
+    # Define the menu options
+    $menuOptions = @(
+        @{ Name = "Detect and/or Install WSL"; Cmdlet = "Install-WSL" },
+        @{ Name = "Return to main menu"; Cmdlet = "Show-Menu" },
+        @{ Name = "Get help"; Cmdlet = "Get-Help" }
+    )
+
+    # Display the menu and prompt the user for a selection
+    $selectedOption = $null
+    while ($null -eq $selectedOption) {
+        Write-Output "Select one of the following options:"
+        $menuIndex = 1
+        foreach ($menuOption in $menuOptions) {
+            Write-Output "$menuIndex) $($menuOption.Name)"
+            $menuIndex++
+        }
+        $selection = Read-Host "Enter your selection"
+
+        # Check if the selection is a valid option
+        if ($selection -ge 1 -and $selection -le $menuIndex) {
+            $selectedOption = $menuOptions[$selection - 1]
+        }
+        else {
+            Write-Output "Invalid selection"
+            $selectedOption = $null
+        }
+    }
+
+    switch ($selectedOption.Name) {
+        "Return to main menu" {
+            # Clear the host and return to the main menu
+            #Clear-Host
+            Show-Menu
+            break
+        }
+        "Get help" {
+            # Get the name of the function to get help for
+            $functionName = Read-Host "Enter the name of the function you want to get help for"
+            try {
+                Get-Help $functionName
+            }
+            catch {
+                Write-Output "There was an error getting help for $functionName. Returning to menu"
+                Show-WinLinuxsMenu
+            }
+        }
+        default {
+            # Execute the selected option and handle errors
+            try {
+                Invoke-Expression $selectedOption.Cmdlet
+            }
+            catch {
+                Write-Output "There was an error executing $($selectedOption.Name). Returning to menu"
+                Show-WinLinixMenu
+            }
+        }
+    }
+}

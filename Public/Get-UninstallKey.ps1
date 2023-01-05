@@ -24,7 +24,9 @@ function Get-UninstallKey {
     Sort-Object -Property DisplayName
 
     # Return to the menu if any of the parameters were not specified
-    if (-not $HKLM -or -not $HKLM_WOW -or -not $HKCU -or -not $HKCU_WOW) {
-        Show-Menu
-    }
+    #if (-not $HKLM -or -not $HKLM_WOW -or -not $HKCU -or -not $HKCU_WOW) {
+    #    Show-Menu
+    #}
+    Write-Output "`n`n"
+    Show-Menu
 }

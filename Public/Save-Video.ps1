@@ -1,3 +1,7 @@
+<#
+.SYNOPSIS
+    This function allows the user to download a video from a specified URL and save it to a specified path with a specified name. If the URL, path, or name are not provided as parameters, the user will be prompted to enter them.
+#>
 function Save-Video() {
     
     param(
@@ -17,7 +21,8 @@ function Save-Video() {
     }
     
     # Return to the menu if either $path or $name was not specified
-    if (-not $path -or -not $name) {
+    #if (-not $path -or -not $name) {
+        Write-Output "`n`n"
         Show-Menu
-    }
+    #}
 }

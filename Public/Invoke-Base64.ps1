@@ -1,4 +1,8 @@
-function Invoke-Base64 {
+
+<#
+.SYNOPSIS
+    This function allows the user to encode or decode a string or file using the base64 encoding/decoding algorithm. The user must provide the input string or file as the $inputVar parameter and specify whether the input is a string or file using the $inputType parameter. The user must also specify the desired output type using the $outputType parameter. If the $inputType is 'string', the function will encode or decode the input string using the [Convert]::ToBase64String and [System.Text.Encoding]::Unicode.GetString methods, respectively. If the $inputType is 'file', the function will read the contents of the specified file and encode or decode them using the same methods.
+#>function Invoke-Base64 {
     param(
         $inputVar,
         $inputType,
@@ -36,7 +40,8 @@ function Invoke-Base64 {
         }
     }
 
-    if (-not $inputVar -or -not $inputType) {
+    #if (-not $inputVar -or -not $inputType) {
+        Write-Output "`n`n"
         Show-Menu
-    }
+    #}
 }

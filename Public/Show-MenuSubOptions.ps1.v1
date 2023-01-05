@@ -35,7 +35,7 @@ function Show-StringManipulationMenu {
 
     if ($selectedOption.Name -eq "Return to main menu") {
         # Clear the host and return to the main menu
-        Clear-Host
+        #Clear-Host
         Show-Menu
     }
     else {
@@ -55,9 +55,12 @@ function Show-StringManipulationMenu {
 function Show-DefenderMenu() {
     # Define the menu options
     $menuOptions = @(
-        @{ Name = "Get Defender logs"; Cmdlet = "Get-DefenderLogs" },
+        @{ Name = "Enable Defender"; Cmdlet = "Enable-Defender" },
         @{ Name = "Disable Defender"; Cmdlet = "Disable-Defender" },
+        @{ Name = "Get Defender logs"; Cmdlet = "Get-DefenderLogs" },
         @{ Name = "Find BitLocker recovery key"; Cmdlet = "Find-BitLockerRecoveryKey" },
+        @{ Name = "Convert-AzureAdObject"; Cmdlet = "Convert-AzureAdObject" },
+        @{ Name = "Force Local Intune Sync"; Cmdlet = "Invoke-ForceIntuneSync" },
         "Main menu"
     )
 
@@ -84,7 +87,7 @@ function Show-DefenderMenu() {
  
     if ($selectedOption.Name -eq "Return to main menu") {
         # Clear the host and return to the main menu
-        Clear-Host
+        #Clear-Host
         Show-Menu
     }
     else {
@@ -137,7 +140,7 @@ function Show-NetworkingMenu() {
  
     if ($selectedOption.Name -eq "Return to main menu") {
         # Clear the host and return to the main menu
-        Clear-Host
+        #Clear-Host
         Show-Menu
     }
     else {
@@ -162,9 +165,8 @@ function Show-WindowsMenu() {
         @{ Name = "Find-Service"; Cmdlet = "Find-Service" },
         @{ Name = "Get-UninstallKey"; Cmdlet = "Get-UninstallKey" },
         @{ Name = "New-SelfSignedCert"; Cmdlet = "New-SelfSignedCert" },
-        @{ Name = "Set-WindowsEdition"; Cmdlet = "Set-WindowsEdition" },
+        @{ Name = "Set-WindowsSelectedEdition"; Cmdlet = "Set-ChangeWindowsEdition" },
         @{ Name = "Set-RegistryValue"; Cmdlet = "Set-RegistryValue" },
-        @{ Name = "Convert-AzureAdObject"; Cmdlet = "Convert-AzureAdObject" },
         @{ Name = "Return to main menu"; Cmdlet = "Show-Menu" }
         "Main menu"
     )
@@ -192,7 +194,7 @@ function Show-WindowsMenu() {
 
     if ($selectedOption.Name -eq "Return to main menu") {
         # Clear the host and return to the main menu
-        Clear-Host
+        #Clear-Host
         Show-Menu
     }
     else {

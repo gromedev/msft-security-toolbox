@@ -1,3 +1,7 @@
+<#
+.SYNOPSIS
+    This function performs a port scan on a specified IP address over a specified range of ports. If the IP address or port range are not provided as parameters, the user will be prompted to enter them. The function scans each port in the specified range and prints a message if the port is open."
+#>
 function Invoke-PortScan {
     param(
         $ip,
@@ -30,7 +34,8 @@ function Invoke-PortScan {
         $connection.Close()
     }
     # Return to the menu if either $path or $name was not specified
-    if (-not $ip -or -not $range) {
+    #if (-not $ip -or -not $range) {
+        Write-Output "`n`n"
         Show-Menu
-    }
+    #}
 }

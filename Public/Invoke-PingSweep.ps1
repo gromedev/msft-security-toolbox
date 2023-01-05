@@ -1,3 +1,7 @@
+<#
+.SYNOPSIS
+    This function performs a ping sweep over a specified IP range and port, displaying the results and saving them to a CSV file if specified. If the IP range or port are not provided as parameters, the user will be prompted to enter them. The function pings each IP address in the range and stores the results in an array. If the ping was successful, the result is added to the array. The function then displays the results and, if a CSV file path was specified, saves the results to the file.
+#>
 function Invoke-PingSweep() {
     # Define the script parameters
     param(
@@ -39,7 +43,8 @@ function Invoke-PingSweep() {
         $results | Export-Csv -Path $csv -NoTypeInformation -Delimiter "`t"
     }
     # Return to the menu if either $path or $name was not specified
-    if (-not $range -or -not $port) {
+    #if (-not $range -or -not $port) {
+        Write-Output "`n`n"
         Show-Menu
-    }
+    #}
 }

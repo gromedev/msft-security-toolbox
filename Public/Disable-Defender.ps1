@@ -1,3 +1,7 @@
+<#
+.SYNOPSIS
+        This script disables Windows Defender in various ways. It adds exclusions for all drives on the system, disables various scanning engines and default actions, and attempts to disable certain services. It can elevate itself to administrator or system privileges if necessary, and prompts the user to save the recovery key to a file if it is found.
+#>
 function Disable-Defender() {
 
     Write-Host "[+] Disable Windows Defender (as $(whoami))"
@@ -180,7 +184,7 @@ function Disable-Defender() {
         
             # Delete Defender files
 
-            function Delete-Show-Error {
+            function Remove-Show-Error {
                 $path_exists = Test-Path $args[0]
                 if ($path_exists) {
                     Remove-Item -Recurse -Force -Path $args[0]
@@ -194,25 +198,26 @@ function Disable-Defender() {
             Write-Host "[+] Delete Windows Defender (files, services, drivers)"
 
             # Delete files
-            Delete-Show-Error "C:\ProgramData\Windows\Windows Defender\"
-            Delete-Show-Error "C:\ProgramData\Windows\Windows Defender Advanced Threat Protection\"
+            Remove-Show-Error "C:\ProgramData\Windows\Windows Defender\"
+            Remove-Show-Error "C:\ProgramData\Windows\Windows Defender Advanced Threat Protection\"
 
             # Delete drivers
-            Delete-Show-Error "C:\Windows\System32\drivers\wd\"
+            Remove-Show-Error "C:\Windows\System32\drivers\wd\"
 
             # Delete service registry entries
             foreach ($svc in $svc_list) {
-                Delete-Show-Error "HKLM:\SYSTEM\CurrentControlSet\Services\$svc"
+                Remove-Show-Error "HKLM:\SYSTEM\CurrentControlSet\Services\$svc"
             }
 
             # Delete drivers registry entries
             foreach ($drv in $drv_list) {
-                Delete-Show-Error "HKLM:\SYSTEM\CurrentControlSet\Services\$drv"
+                Remove-Show-Error "HKLM:\SYSTEM\CurrentControlSet\Services\$drv"
             }
         }
     }
 
     Write-Host ""
     Read-Host -Prompt "Press any key to continue"
+    Write-Output "`n`n"
     Show-Menu
 }

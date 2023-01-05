@@ -7,18 +7,75 @@ Import-Module .\PowerShellCheatSheet -Force; Show-Menu
 ![logo](https://github.com/gromedev/PowerShellCheatSheet/blob/main/Assets/logo.png)
 
 
-# Functions
-Search for a file: This function searches for a file with a specified name in a specified path and its subdirectories.
+# Functions (So far...)
 
-Search for a string within a file: This function searches for a specified string in a specified file and displays the lines containing the string.
+Use Get-Help for more details:
 
-Find process: This function prompts the user to enter a process name, retrieves information about the process using the Get-Process cmdlet, and displays the information in a table using the Format-Table cmdlet. If the user confirms that they want to kill the process, the function uses the Stop-Process cmdlet to stop the process.
 
+Convert-AzureAdObject
+
+Disable-Defender
+
+Find-BitLockerRecoveryKey
+
+Find-File
+
+Find-Process
+
+Find-Service
+
+Find-String
+
+Get-DefenderLogs
+
+Get-ProcessUsingFile
+
+Get-SHA1
+
+Get-UninstallKey
+
+Get-WebFile
+
+Get-Whois
+
+Invoke-Base64
+
+Invoke-FirewallRule
+
+Invoke-ForceIntuneSync
+
+Invoke-GUI.wip
+
+Invoke-PingSweep
+
+Invoke-PortScan
+
+New-SelfSignedCert
+
+Save-Video
+
+Set-FileNamesByDate
+
+Set-MacAddress
+
+Set-RegistryValue
+
+Set-StringInFiles
+
+Set-WindowsEdition
+
+Show-Menu
+
+Show-MenuSubOptions
+
+Stop-Process
 # Usage
 
 Import-Module .\PowerShellCheatSheet -Force
 
 Run Show-Menu and select an option. 
+
+![usage](https://github.com/gromedev/PowerShellCheatSheet/blob/main/Assets/usage.png)
 
 OR
 
@@ -48,9 +105,7 @@ Invoke-FirewallRule
 
 Convert-AzureAdObject -ObjectId "8defd89d-7ce3-4050-9aa9-1f8eb60c4c2c"
 
-Get-Whois example.com
-
-Alternatively, you can pipe a list of domain names to the function: "example.com", "example.net", "example.org" | Get-Whois
+Get-Whois example.com --> Alternatively, you can pipe a list of domain names to the function: "example.com", "example.net", "example.org" | Get-Whois
 
 
 

@@ -1,3 +1,7 @@
+<#
+.SYNOPSIS
+    The Convert-AzureAdObject function is a command that allows you to convert between Azure AD object IDs and SIDs (Security Identifiers). It takes a single parameter, $ObjectId, which should be a string containing either an Azure AD object ID or an SID. The function displays a menu to the user, asking them to choose between converting an Azure AD object to an SID or an SID to an Azure AD object. The user can then enter the appropriate choice and the function will execute the selected conversion. If the user enters 'q', the function will return. The function also has two nested functions, ConvertToSID and ConvertToObjectId, which perform the actual conversion.
+#>
 function Convert-AzureAdObject {
     param([String] $ObjectId)
 
@@ -43,7 +47,9 @@ function Convert-AzureAdObject {
         default { Write-Host "Invalid option." }
     }
     # Return to the menu if either $path or $name was not specified
-    if (-not $path -or -not $name) {
-        Show-Menu
-    }
+    #if (-not $path -or -not $name) {
+    #    Show-Menu
+    #}
+    Write-Output "`n`n"
+    Show-Menu
 }
