@@ -10,6 +10,7 @@ function Show-MenuDefender() {
     $menuOptions = @(
         @{ Name = "Enable Defender"; Cmdlet = "Enable-Defender" },
         @{ Name = "Disable Defender"; Cmdlet = "Disable-Defender" },
+        @{ Name = "Reset Defender to default settings"; Cmdlet = "Reset-Defender" },        
         @{ Name = "Get Defender logs"; Cmdlet = "Get-DefenderLogs" },
         @{ Name = "Find BitLocker recovery key"; Cmdlet = "Find-BitLockerRecoveryKey" },
         @{ Name = "Convert-AzureAdObject"; Cmdlet = "Convert-AzureAdObject" },
@@ -49,6 +50,7 @@ function Show-MenuDefender() {
             $commands = @(
                 "Enable-Defender",
                 "Disable-Defender",
+                "Reset-Defender",
                 "Get-DefenderLogs",
                 "Find-BitLockerRecoveryKey",
                 "Convert-AzureAdObject"

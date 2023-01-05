@@ -7,11 +7,14 @@ function Show-MenuWindows() {
         @{ Name = "Find-Process"; Cmdlet = "Find-Process" },
         @{ Name = "Get-ProcessUsingFile"; Cmdlet = "Get-ProcessUsingFile" },
         @{ Name = "Find-Service"; Cmdlet = "Find-Service" },
+        @{ Name = "Search-Registry"; Cmdlet = "Search-Registry" },
+        @{ Name = "Set-RegistryKeyPermissions"; Cmdlet = "Set-RegistryKeyPermissions" },
         @{ Name = "Get-UninstallKey"; Cmdlet = "Get-UninstallKey" },
         @{ Name = "New-SelfSignedCert"; Cmdlet = "New-SelfSignedCert" },
         @{ Name = "Set-WindowsSelectedEdition"; Cmdlet = "Set-ChangeWindowsEdition" },
         @{ Name = "Set-RegistryKeyValue"; Cmdlet = "Set-RegistryKeyValue" },
-        @{ Name = "Start-RemoteConnection"; Cmdlet = "Start-RemoteConnection" }
+        @{ Name = "Start-RemoteConnection"; Cmdlet = "Start-RemoteConnection" },
+        @{ Name = "Disable-FastStartup"; Cmdlet = "Disable-FastStartup" }
         #@{ Name = "Return to main menu"; Cmdlet = "Show-Menu" },
         #@{ Name = "Get help"; Cmdlet = "Get-Help" }
     )
@@ -52,7 +55,10 @@ function Show-MenuWindows() {
                 "New-SelfSignedCert",
                 "Set-ChangeWindowsEdition",
                 "Set-RegistryKeyValue",
-                "Start-RemoteConnection"
+                "Start-RemoteConnection",
+                "Disable-FastStartup",
+                "Search-Registry",
+                "Set-RegistryKeyPermissions"
             )
             $commands | ForEach-Object { Get-Help $_ | Format-List -Property Name, Synopsis }
             Write-Output ""
