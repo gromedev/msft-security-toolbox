@@ -111,12 +111,15 @@ Examples:
 ```
 
 ## Task list
-- [x] Sub-menus
 - [ ] Sub-menu (Get-Help and Return fixes)
-- [ ] Hyper-V function
+- [ ] Useful modules fast install
+- [ ] Connect menu (azure, graph, etc)
+- [ ] AzureAD cheatsheet
+- [ ] Intune cheatsheet
+- [ ] Arm templates
+- [ ] ASR triggers
+- [ ] Hyper-V local setup fast VM
 - [ ] Develop Linux WSL
-- [ ] Password spray
-- [ ] Bruteforce (w/ rockyou.txt)
 - [ ] SmartScreen enable/disable
 - [ ] OEM/SLP locked device (https://blog.grome.dev/2021/09/windows-servertroubleshootingwindowshom.html)
 
