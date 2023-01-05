@@ -36,6 +36,7 @@ Get-SHA1
 ```
 Enable-Defender
 Disable-Defender
+Reset-Defender
 Get-DefenderLogs
 Find-BitLockerRecoveryKey
 Convert-AzureAdObject
