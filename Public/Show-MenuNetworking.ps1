@@ -6,7 +6,7 @@ function Show-MenuNetworking() {
     $menuOptions = @(
         @{ Name = "Invoke-PingSweep"; Cmdlet = "Invoke-PingSweep" },
         @{ Name = "Invoke-PortScan"; Cmdlet = "Invoke-PortScan" },
-        @{ Name = "Get-Whois"; Cmdlet = "Get-Whois" },
+        #@{ Name = "Get-Whois"; Cmdlet = "Get-Whois" },
         @{ Name = "Spoof MacAddress"; Cmdlet = "Set-MacAddress" },
         @{ Name = "Invoke-FirewallRule"; Cmdlet = "Invoke-FirewallRule" },
         @{ Name = "Download file from URL"; Cmdlet = "Get-WebFile" },

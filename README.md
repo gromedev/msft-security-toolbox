@@ -48,7 +48,7 @@ Invoke-ForceIntuneSync
 ```
 Invoke-PingSweep
 Invoke-PortScan
-Get-Whois
+~~Get-Whois~~
 Set-MacAddress
 Invoke-FirewallRule
 Get-WebFile
