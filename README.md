@@ -62,11 +62,14 @@ Save-Video
 Find-Process
 Get-ProcessUsingFile
 Find-Service
+Search-Registry
+Set-RegistryKeyPermissions
 Get-UninstallKey
 New-SelfSignedCert
 Set-ChangeWindowsEdition
 Set-RegistryKeyValue
 Start-RemoteConnection
+Disable-FastStartup
 ```
 
 
