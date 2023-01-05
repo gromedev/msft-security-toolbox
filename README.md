@@ -1,6 +1,8 @@
 # PowerShellCheatSheet
 Module containing a collection of simple yet useful functions. 
 
+NOTE: Disable-Defender.ps1 triggers a Virus warning in Defender. 
+
 Import-Module .\PowerShellCheatSheet -Force; Show-Menu
 
 
