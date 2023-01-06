@@ -42,7 +42,7 @@ function Set-RegistryKeyValue {
 
     Write-Host ""
     Read-Host -Prompt "Press any key to reurn to main menu."
-    Write-Output "`n`n"
+    Write-Output "`n"
     Show-Menu
     
 }

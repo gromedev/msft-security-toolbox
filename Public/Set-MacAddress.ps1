@@ -22,6 +22,6 @@ function Set-MacAddress {
     $adapter = Get-WmiObject -Class Win32_NetworkAdapter | Where-Object {$_.NetConnectionID -eq "Ethernet"}
     $adapter.SetMACAddress($MacAddress)
 
-    Write-Output "`n`n"
+    Write-Output "`n"
     Show-Menu
 }

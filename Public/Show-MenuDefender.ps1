@@ -12,6 +12,7 @@ function Show-MenuDefender() {
         @{ Name = "Disable Defender"; Cmdlet = "Disable-Defender" },
         @{ Name = "Reset Defender to default settings"; Cmdlet = "Reset-Defender" },        
         @{ Name = "Get Defender logs"; Cmdlet = "Get-DefenderLogs" },
+        @{ Name = "Search-EventTraceLog"; Cmdlet = "Search-EventTraceLog" },
         @{ Name = "Find BitLocker recovery key"; Cmdlet = "Find-BitLockerRecoveryKey" },
         @{ Name = "Convert-AzureAdObject"; Cmdlet = "Convert-AzureAdObject" },
         @{ Name = "Force Local Intune Sync"; Cmdlet = "Invoke-ForceIntuneSync" },

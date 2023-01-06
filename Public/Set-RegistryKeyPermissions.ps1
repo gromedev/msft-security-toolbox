@@ -10,7 +10,7 @@ function Set-RegistryKeyPermissions {
         [Parameter(Position=1,Mandatory=$false)]
         [switch]$PassThru
     )
-
+    Write-Output "`nSet-RegistryKeyPermissions"
     # Get the current permissions on the key
     $acl = Get-Acl $Path
 
@@ -25,5 +25,7 @@ function Set-RegistryKeyPermissions {
     if ($PassThru) {
         $acl
     }
+    Write-Output "`n"
+    Show-Menu
 }
 
