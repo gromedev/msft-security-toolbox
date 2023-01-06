@@ -36,6 +36,7 @@ Get-SHA1
 ```
 Enable-Defender
 Disable-Defender
+Reset-Defender
 Get-DefenderLogs
 Search-EventTraceLog
 Find-BitLockerRecoveryKey
@@ -116,18 +117,8 @@ Examples:
 
 ## Task list
 - [ ] Sub-menu (Get-Help and Return fixes)
-
-Menu specific "cheatsheets"
-- [ ] Useful modules to fast install (AzureAD, etc.)
-- [ ] Connect to service (Azure, mgGraph, etc.) 
-- [ ] Azure (https://github.com/andreipintica/Azure-PowerShell-CheatSheet)
-- [ ] AzureAD
-- [ ] Intune
-- [ ] O365
-
-Individual functions:
-- [ ] Develop Linux WSL
 - [ ] Hyper-V function
+- [ ] Develop Linux WSL
 - [ ] Password spray
 - [ ] Bruteforce (w/ rockyou.txt)
 - [ ] SmartScreen enable/disable
