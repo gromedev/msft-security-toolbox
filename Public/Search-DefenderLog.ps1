@@ -20,8 +20,13 @@ function Search-DefenderLog {
     if ($confirm -eq "Y") {
         # Check if the CabFile parameter has a value
         if ($CabFile -eq $null) {
-            # If the CabFile parameter is null, prompt the user to enter a path
-            $CabFile = Read-Host "Enter the path to the .cab file or just continue to generate a new .cab file:"
+            # If the CabFile parameter is null, prompt the user to execute the Get-DefenderLogs function
+            $getLogs = Read-Host "No .cab file specified. Do you want to execute the Get-DefenderLogs function to create a new .cab file? (Y/N)"
+
+            # If the user confirms, execute the Get-DefenderLogs function and assign the output to the CabFile variable
+            if ($getLogs -eq "Y") {
+                $CabFile = Get-DefenderLogs
+            }
         }
 
         # Check if the Query parameter has a value
