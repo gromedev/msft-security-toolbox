@@ -37,6 +37,7 @@ Get-SHA1
 Enable-Defender
 Disable-Defender
 Get-DefenderLogs
+Search-EventTraceLog
 Find-BitLockerRecoveryKey
 Convert-AzureAdObject
 Invoke-ForceIntuneSync
@@ -48,7 +49,7 @@ Invoke-ForceIntuneSync
 ```
 Invoke-PingSweep
 Invoke-PortScan
-~~Get-Whois~~
+Get-DNSRecords
 Set-MacAddress
 Invoke-FirewallRule
 Get-WebFile
@@ -63,6 +64,9 @@ Find-Process
 Get-ProcessUsingFile
 Find-Service
 Search-Registry
+Search-EventLog
+Search-EventTraceLog
+Find-ApplicationsWithNoEventLogStatus
 Set-RegistryKeyPermissions
 Get-UninstallKey
 New-SelfSignedCert
@@ -111,10 +115,19 @@ Examples:
 ```
 
 ## Task list
-- [x] Sub-menus
 - [ ] Sub-menu (Get-Help and Return fixes)
-- [ ] Hyper-V function
+
+Menu specific "cheatsheets"
+- [ ] Useful modules to fast install (AzureAD, etc.)
+- [ ] Connect to service (Azure, mgGraph, etc.) 
+- [ ] Azure (https://github.com/andreipintica/Azure-PowerShell-CheatSheet)
+- [ ] AzureAD
+- [ ] Intune
+- [ ] O365
+
+Individual functions:
 - [ ] Develop Linux WSL
+- [ ] Hyper-V function
 - [ ] Password spray
 - [ ] Bruteforce (w/ rockyou.txt)
 - [ ] SmartScreen enable/disable
