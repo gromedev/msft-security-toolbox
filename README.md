@@ -38,6 +38,7 @@ Enable-Defender
 Disable-Defender
 Reset-Defender
 Get-DefenderLogs
+Search-DefenderLog
 Search-EventTraceLog
 Find-BitLockerRecoveryKey
 Convert-AzureAdObject
