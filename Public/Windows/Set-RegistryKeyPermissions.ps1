@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    This function modifies the permissions of a registry key to allow the current user to read and execute it.
+    The Set-RegistryKeyPermissions function in PowerShell modifies the permissions of a specified Windows Registry key to allow all users to read and execute the key. It does this by retrieving the current permissions of the key using the Get-Acl command, adding a new access rule to allow read and execute access to everyone using the New-Object and SetAccessRule commands, and then applying the modified permissions to the key using the Set-Acl command. If the -PassThru parameter is specified, the modified permissions are passed through the pipeline.
 #>
 function Set-RegistryKeyPermissions {
     [CmdletBinding()]

@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-Output the current Windows edition and prompt the user to change it
+    The Set-ChangeWindowsEdition function in PowerShell attempts to change the Windows edition using the Set-WindowsEdition command. It then checks if the EditionID value exists in the Windows Registry at the specified path.
 #>
 
 function Set-ChangeWindowsEdition {

@@ -3,16 +3,12 @@ Module containing a collection of simple yet useful functions.
 - All functions are authored by thomas@grome.dev 
 - Unless otherwise specified in the comments.
 
-**NOTE:** Disable-Defender.ps1 triggers a Virus warning in Defender. 
-- Apropos so far this is the only function "borrowed" from another developer :)
-- Visit https://github.com/jeremybeaume
-
 ```
 Set-ExecutionPolicy -executionpolicy Bypass
 Import-Module .\PowerShellCheatSheet -Force; Show-Menu
 ```
 
-![logo](https://github.com/gromedev/PowerShellCheatSheet/blob/main/Assets/logo.png)
+![logo](https://github.com/gromedev/PowerShellCheatSheet/blob/main/Assets/img/logo.png)
 
 
 ## Functions (So far...)
@@ -93,7 +89,7 @@ Import-Module .\PowerShellCheatSheet -Force
 
 Run Show-Menu and select an option. 
 
-![usage](https://github.com/gromedev/PowerShellCheatSheet/blob/main/Assets/usage.png)
+![usage](https://github.com/gromedev/PowerShellCheatSheet/blob/main/Assets/img/usage.png)
 
 OR
 
@@ -118,6 +114,9 @@ Examples:
 
 ## Task list
 - [ ] Sub-menu (Get-Help and Return fixes)
+- [ ] Defender: KQL stuff.
+- [ ] Az "Cheatsheet" e.g. rg mgmt; vm; etc.
+- [ ] AzureAD "Cheatsheet" e.g. user management, etc.
 - [ ] Hyper-V function
 - [ ] Develop Linux WSL
 - [ ] Password spray

@@ -1,3 +1,4 @@
+<#
 Login-AzAccount 
 Logout-AzAccount 
 Get-AzSubscription
@@ -34,3 +35,4 @@ $Resource.ResourceId -DestinationResourceGroupName - #Moves the resource from St
 #https://github.com/andreipintica/Azure-PowerShell-CheatSheet
 #>
 
+#>
