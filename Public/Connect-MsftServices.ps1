@@ -15,7 +15,7 @@ function Connect-MsftServices {
     Write-Host "Logging in to Azure account..."
     Login-AzAccount -Credential $cred -Authentication Prompt
 
-    Write-Host "Connecting to MG Service..."
+    Write-Host "Connecting to MgGraph Service..."
     Connect-MgService -Credential $cred -Authentication Prompt
 
     # Get current Azure context

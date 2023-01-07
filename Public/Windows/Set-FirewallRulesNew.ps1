@@ -2,7 +2,7 @@
 .SYNOPSIS
     This function allows the user to list or modify firewall rules on the local machine. If the action and rule properties are not provided as parameters, the user will be prompted to enter them. The function supports the following actions: 'list' (lists the firewall rules) and 'modify' (modifies the specified firewall rule). If the action is 'modify', the user must also specify the name, protocol, local port, remote address, remote port, direction, and profiles for the firewall rule. The function uses the Get-NetFirewallRule and Set-NetFirewallRule cmdlets to list and modify the firewall rules, respectively.
 #>
-function Invoke-FirewallRule {
+function Set-FirewallRulesNew {
     param(
         $action,
         $name,
@@ -13,7 +13,7 @@ function Invoke-FirewallRule {
         $direction,
         $profiles
     )
-    Write-Output "`nInvoke-FirewallRule"
+    Write-Output "`nSet-FirewallRulesNew"
     # Prompt user for action and rule properties if they were not specified
     if (-not $action) {
         $action = Read-Host "Enter the action (list or modify): "
