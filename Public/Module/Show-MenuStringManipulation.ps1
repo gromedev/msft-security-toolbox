@@ -8,7 +8,6 @@ function Show-MenuStringManipulation {
     Write-Output "3. Set-StringInFiles"
     Write-Output "4. Set-FileNamesByDate"
     Write-Output "5. Invoke-Base64"
-    Write-Output "6. Get-SHA1"
     Write-Output ""
     Write-Output "h. Get help"
     Write-Output "0. Return to main menu"
@@ -29,8 +28,7 @@ function Show-MenuStringManipulation {
                 "Find-String",
                 "Set-StringInFiles",
                 "Set-FileNamesByDate",
-                "Invoke-Base64",
-                "Get-SHA1"
+                "Invoke-Base64"
             )
             foreach ($command in $commands) {
                 Get-Help $command | Format-List -Property Name, Synopsis
