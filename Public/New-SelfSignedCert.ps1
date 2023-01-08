@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    This function allows the user to create a self-signed certificate with a specified subject and DNS name. If the subject or DNS name are not provided as parameters, the user will be prompted to enter them. The function then displays the properties of the new certificate and gives the user the option to save it. If the user chooses to save the certificate, they will be prompted to enter the output path where the certificate should be saved."
+This function allows the user to create a self-signed certificate with a specified subject and DNS name. If the subject or DNS name are not provided as parameters, the user will be prompted to enter them. The function then displays the properties of the new certificate and gives the user the option to save it. If the user chooses to save the certificate, they will be prompted to enter the output path where the certificate should be saved."
 #>
 function New-SelfSignedCert {
     param(
@@ -34,10 +34,4 @@ function New-SelfSignedCert {
         Export-Certificate -Type PKCS12 -FilePath $outputPath -Cert $cert
         Write-Host "Certificate saved to '$outputPath'"
     }
-
-    # Return to the menu if either $path or $name was not specified
-    #if (-not $Subject -or -not $DnsName) {
-        Write-Output "`n`n"
-        Show-Menu
-    #}
 }

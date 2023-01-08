@@ -39,6 +39,4 @@ function Find-ApplicationsWithNoEventLogStatus {
             $results | Export-Csv -Path $path -NoTypeInformation -Force
         }
     }
-    Write-Output "`n"
-    Show-Menu
 }

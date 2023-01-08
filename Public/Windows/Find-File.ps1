@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    This function searches for a file with the specified name in the specified path, and returns a list of the matching files. If the user wants to save the results of the search as a CSV file, they can specify a path for the CSV file. The function will then use the Export-Csv cmdlet to save the search results to the specified CSV file.
+This function searches for a file with the specified name in the specified path, and returns a list of the matching files. If the user wants to save the results of the search as a CSV file, they can specify a path for the CSV file. The function will then use the Export-Csv cmdlet to save the search results to the specified CSV file.
 #>
 function Find-File {
     param(
@@ -31,11 +31,4 @@ function Find-File {
         $results | Export-Csv $csvPath -NoTypeInformation
         Write-Host "Results saved to $csvPath"
     }
-
-    # Return to the menu if either $path or $name was not specified
-    #if (-not $path -or -not $name) {
-    #    Show-Menu
-    #}
-    Write-Output "`n`n"
-    Show-Menu
 }

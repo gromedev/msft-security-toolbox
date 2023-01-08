@@ -1,6 +1,6 @@
 <# 
 .SYNOPSIS
-    Set the selected edition and update the related registry values
+Set the selected edition and update the related registry values
 #>
 function Set-WindowsSelectedEdition {
     [CmdletBinding()]

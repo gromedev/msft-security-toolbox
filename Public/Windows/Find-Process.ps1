@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-	This function allows the user to query for a specific process by name or all processes. If a specific process is queried, the function displays the name, ID, CPU usage, and working set of the process. The user also has the option to kill the process. If no process name is specified, the user is prompted to enter the name of the process they want to query.
+This function allows the user to query for a specific process by name or all processes. If a specific process is queried, the function displays the name, ID, CPU usage, and working set of the process. The user also has the option to kill the process. If no process name is specified, the user is prompted to enter the name of the process they want to query.
 #>
 function Find-Process {
     param(
@@ -22,9 +22,4 @@ function Find-Process {
     if ($confirm -eq "y") {
         Stop-Process -Name $name
     }
-    ## Return to the menu if either $path or $name was not specified
-    #if (-not $name) {
-        Write-Output "`n`n"
-        Show-Menu
-    #}
 }

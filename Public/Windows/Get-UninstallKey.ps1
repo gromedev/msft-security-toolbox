@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    This function searches for installed software in the specified locations in the Windows Registry, specifically the HKLM (HKEY_LOCAL_MACHINE), HKLM\WOW6432Node, HKCU (HKEY_CURRENT_USER), and HKCU\WOW6432Node hives. If any of these locations are not specified as parameters, the user will be prompted to enter them. The function then displays the DisplayName, DisplayVersion, UninstallString, and InstallDate of the software it finds, sorted by DisplayName. 
+This function searches for installed software in the specified locations in the Windows Registry, specifically the HKLM (HKEY_LOCAL_MACHINE), HKLM\WOW6432Node, HKCU (HKEY_CURRENT_USER), and HKCU\WOW6432Node hives. If any of these locations are not specified as parameters, the user will be prompted to enter them. The function then displays the DisplayName, DisplayVersion, UninstallString, and InstallDate of the software it finds, sorted by DisplayName. 
 #>
 function Get-UninstallKey {
     param(
@@ -27,11 +27,4 @@ function Get-UninstallKey {
     Where-Object DisplayName |
     Select-Object -Property DisplayName, DisplayVersion, UninstallString, InstallDate |
     Sort-Object -Property DisplayName
-
-    # Return to the menu if any of the parameters were not specified
-    #if (-not $HKLM -or -not $HKLM_WOW -or -not $HKCU -or -not $HKCU_WOW) {
-    #    Show-Menu
-    #}
-    Write-Output "`n`n"
-    Show-Menu
 }

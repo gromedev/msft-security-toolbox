@@ -49,6 +49,4 @@ function Search-EventTraceLog {
         # If the ExportToCsv flag is not present, return the results as output
         $results
     }
-    Write-Output "`n"
-    Show-Menu
 }

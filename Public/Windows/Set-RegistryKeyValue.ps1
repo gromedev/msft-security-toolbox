@@ -1,12 +1,12 @@
 <# 
 .SYNOPSIS
-    Set the registry key for the Outlook DelegateWastebasketStyle value
-    
+Set the registry key for the Outlook DelegateWastebasketStyle value
+
 .PARAMETERS
-  -registryPath: The registry path to the key. Default is "HKCU:\SOFTWARE\Microsoft\Office\16.0\Outlook\Options\General"
-  -name: The name of the key. Default is "DelegateWastebasketStyle"
-  -value: The value to set for the key. Default is "4"
-  -type: The data type for the key value. Default is "DWORD"
+-registryPath: The registry path to the key. Default is "HKCU:\SOFTWARE\Microsoft\Office\16.0\Outlook\Options\General"
+-name: The name of the key. Default is "DelegateWastebasketStyle"
+-value: The value to set for the key. Default is "4"
+-type: The data type for the key value. Default is "DWORD"
 #>
 function Set-RegistryKeyValue {
     [CmdletBinding()]
@@ -37,12 +37,5 @@ function Set-RegistryKeyValue {
     if (!(Test-Path $registryPath)) {
         New-Item -Path $registryPath -Force | Out-Null
     }
-
     New-ItemProperty -Path $registryPath -Name $name -Value $value -PropertyType $type -Force
-
-    Write-Host ""
-    Read-Host -Prompt "Press any key to reurn to main menu."
-    Write-Output "`n"
-    Show-Menu
-    
 }

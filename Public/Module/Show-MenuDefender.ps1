@@ -9,7 +9,7 @@ function Show-MenuDefender {
     Write-Output "4. Get Defender logs"
     Write-Output "5. Search-EventTraceLog"
     Write-Output "6. Find BitLocker recovery key"
-    Write-Output "7. Convert-AzureAdObject"
+    #Write-Output "7. Convert-AzureAdObject"
     Write-Output "8. Force Local Intune Sync"
     Write-Output "9. Useful msft modules"
     Write-Output ""

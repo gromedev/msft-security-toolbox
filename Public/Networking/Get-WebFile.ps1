@@ -30,10 +30,5 @@ function Get-WebFile {
     }
     Catch {
         Write-Output "An error occurred: $_"
-    }        
-    # Return to the menu if either $path or $name was not specified
-    #if (-not $url -or -not $path) {
-        Write-Output "`n`n"
-        Show-Menu
-    #}
+    }
 }

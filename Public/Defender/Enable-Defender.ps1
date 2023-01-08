@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    This function enables Windows Defender by elevating to administrator privileges if necessary, removing the exclusions for all drives on the system, enabling the scanning engines, setting the default actions to their default values, and enabling the necessary services.
+This function enables Windows Defender by elevating to administrator privileges if necessary, removing the exclusions for all drives on the system, enabling the scanning engines, setting the default actions to their default values, and enabling the necessary services.
 #>
 function Enable-Defender() {
 
@@ -46,8 +46,4 @@ function Enable-Defender() {
             Set-Service -Name $service.Name -StartupType Automatic -ErrorAction SilentlyContinue
         }
     }
-    Write-Host ""
-    Read-Host -Prompt "Press any key to reurn to main menu."
-    Write-Output "`n`n"
-    Show-Menu
 }

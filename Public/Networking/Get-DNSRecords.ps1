@@ -22,6 +22,4 @@ function Get-DnsRecord {
             Write-Output "$($record.IPAddressToString)`t$t`t$url"
         }
     }
-    Write-Output "`n"
-    Show-Menu
 }

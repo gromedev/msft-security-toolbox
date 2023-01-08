@@ -18,6 +18,6 @@ function Set-ChangeWindowsEdition {
     }
     else {
         # If the EditionID value does not exist, output an error message
-        Write-Output "Error: Failed to change Windows edition."
+        Write-Output "Error: Failed to change WiAndows edition."
     }
 }

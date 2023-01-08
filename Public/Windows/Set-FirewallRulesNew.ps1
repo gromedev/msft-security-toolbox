@@ -55,9 +55,4 @@ function Set-FirewallRulesNew {
         # Invalid action
         Write-Output "Invalid action. Please specify either 'list' or 'modify'."
     }
-    # Return to the menu if either $path or $name was not specified
-    #if (-not $action -or -not $name) {
-        Write-Output "`n`n"
-        Show-Menu
-    #}
 }

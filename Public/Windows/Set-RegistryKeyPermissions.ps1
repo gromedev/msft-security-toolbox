@@ -25,7 +25,5 @@ function Set-RegistryKeyPermissions {
     if ($PassThru) {
         $acl
     }
-    Write-Output "`n"
-    Show-Menu
 }
-
+S

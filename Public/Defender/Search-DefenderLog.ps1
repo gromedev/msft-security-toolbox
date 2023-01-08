@@ -1,13 +1,13 @@
 <#
 .SYNOPSIS
-    The function will extract the .cab file, search each log file for the specified query, and then delete the extracted log files.
+The function will extract the .cab file, search each log file for the specified query, and then delete the extracted log files.
 #>
 function Search-DefenderLog {
     [CmdletBinding()]
     param (
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true)]
         [string]$CabFile,
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true)]
         [string]$Query
     )
 
@@ -52,7 +52,4 @@ function Search-DefenderLog {
     else {
         Write-Output "Cancelled."
     }
-
-    Write-Output "`n"
-    Show-Menu
 }

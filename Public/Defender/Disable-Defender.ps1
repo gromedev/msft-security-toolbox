@@ -12,9 +12,4 @@ function Disable-Defender() {
     Write-Output "This (really great) function was removed:"
     Write-Output "Grab the original from here: https://bidouillesecurity.com/disable-windows-defender-in-powershell"
     Write-Output "`nEventually I'll get around to re-writing a version that isn't AS descructive."
-
-    Write-Host ""
-    Read-Host -Prompt "Press any key to continue"
-    Write-Output "`n`n"
-    Show-Menu
 }

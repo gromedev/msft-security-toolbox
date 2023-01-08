@@ -19,6 +19,4 @@ function Get-DefenderLogs() {
     Else {
         Write-Host "Something Went Wrong"
     }
-    Write-Output "`n`n"
-    Show-Menu
 }

@@ -1,6 +1,6 @@
 <# 
 .SYNOPSIS
-    Test if a registry value exists
+Test if a registry value exists
 #>
 function Test-WindowsRegistryValue {
     [CmdletBinding()]
@@ -14,7 +14,8 @@ function Test-WindowsRegistryValue {
     try {
         Get-ItemProperty -Path $path | Select-Object -ExpandProperty $value -ErrorAction Stop | Out-Null
         return $true
-    } catch {
+    }
+    catch {
         return $false
     }
 }

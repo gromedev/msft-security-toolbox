@@ -36,6 +36,4 @@ function Search-EventLog {
         }
         $results | Export-Csv -Path $path -NoTypeInformation -Force
     }
-    Write-Output "`n"
-    Show-Menu
 }

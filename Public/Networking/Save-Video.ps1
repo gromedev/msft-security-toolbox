@@ -44,5 +44,3 @@ function Save-Video {
     Write-Host "Downloading " $NameIn "Channel"
     Start-Sleep -Seconds 720 ## wait a few minutes to avoid throttling
 }
-
-
