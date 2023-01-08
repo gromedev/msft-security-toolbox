@@ -1,4 +1,4 @@
-# Update-ModuleManifest -Path .\PowerShellCheatSheet.psd1 -ModuleVersion "0.3.7"
+# Update-ModuleManifest -Path .\PowerShellCheatSheet.psd1 -ModuleVersion "0.3.8"
 $Public  = @(Get-ChildItem -Path $PSScriptRoot\Public\*.ps1 -Recurse -ErrorAction SilentlyContinue)
 $Private = @(Get-ChildItem -Path $PSScriptRoot\Private\*.ps1 -Recurse -ErrorAction SilentlyContinue)
 
