@@ -12,6 +12,7 @@ function Show-MenuDefender {
     #Write-Output "7. Convert-AzureAdObject"
     Write-Output "8. Force Local Intune Sync"
     Write-Output "9. Useful msft modules"
+    #"Search-DefenderLog"
     Write-Output ""
     Write-Output "h. Get help"
     Write-Output "0. Return to main menu"

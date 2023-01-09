@@ -26,4 +26,3 @@ function Set-RegistryKeyPermissions {
         $acl
     }
 }
-S
