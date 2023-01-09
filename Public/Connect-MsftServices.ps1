@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    The Connect-MsftServices function is a PowerShell script that prompts the user for credentials and uses them to connect to various Microsoft services, including Azure AD, MSOL (Microsoft Online Services), and MG (Management Graph). The script also logs in to the Azure account and connects to the MG Service. Finally, the function displays the current Azure context, including the account and tenant that it is connected to.
+    The Connect-MsftServices function prompts the user for credentials and uses them to connect to various Microsoft services, including Azure AD, MSOL (Microsoft Online Services), and MG (Management Graph). The script also logs in to the Azure account and connects to the MG Service. Finally, the function displays the current Azure context, including the account and tenant that it is connected to.
 #>
 function Connect-MsftServices {
     # Prompt for credentials
