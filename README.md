@@ -11,8 +11,8 @@ Import-Module .\PowerShellCheatSheet -Force; Show-Menu
 ![logo](https://github.com/gromedev/PowerShellCheatSheet/blob/main/Assets/img/logo.png)
 
 
-## Functions (So far...)
-
+## Functions 
+(Incomplete list.. this module is a major WIP and I can't always be bothered to update its README)
 Use Get-Help for more details:
 
 ###### String and File manipulation:
