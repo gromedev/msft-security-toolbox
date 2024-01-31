@@ -1,95 +1,27 @@
-# PowerShellCheatSheet
+# msft-security-toolbox
 Module containing a collection of simple yet useful functions. 
 - All functions are authored by thomas@grome.dev 
 - Unless otherwise specified in the comments.
 
 ```
 Set-ExecutionPolicy -executionpolicy Bypass
-Import-Module .\PowerShellCheatSheet -Force; Show-Menu
+Import-Module .\msft-security-toolbox -Force; Show-Menu
 ```
 
-![logo](https://github.com/gromedev/PowerShellCheatSheet/blob/main/Assets/img/logo.png)
+#![logo](https://github.com/gromedev/msft-security-toolbox/blob/main/Assets/img/logo.png)
 
 
 ## Functions 
 (Incomplete list.. this module is a major WIP and I can't always be bothered to update its README)
 Use Get-Help for more details:
 
-###### String and File manipulation:
------------------------------
-```
-Find-File
-Find-String
-Set-StringInFiles
-Set-FileNamesByDate
-Invoke-Base64
-Get-SHA1
-```
-
-
-###### Azure and Defender:
------------------------------
-```
-Enable-Defender
-Disable-Defender
-Reset-Defender
-Get-DefenderLogs
-Search-DefenderLog
-Search-EventTraceLog
-Find-BitLockerRecoveryKey
-Convert-AzureAdObject
-Invoke-ForceIntuneSync
-```
-
-
-###### Networking:
------------------------------
-```
-Invoke-PingSweep
-Invoke-PortScan
-Get-DNSRecords
-Set-MacAddress
-Invoke-FirewallRule
-Get-WebFile
-Save-Video
-```
-
-
-###### Windows:
------------------------------
-```
-Find-Process
-Get-ProcessUsingFile
-Find-Service
-Search-Registry
-Search-EventLog
-Search-EventTraceLog
-Find-ApplicationsWithNoEventLogStatus
-Set-RegistryKeyPermissions
-Get-UninstallKey
-New-SelfSignedCert
-Set-ChangeWindowsEdition
-Set-RegistryKeyValue
-Start-RemoteConnection
-Disable-FastStartup
-```
-
-
-###### Linux WSL
------------------------------
-```
-Install-WSL
-```
-
-
 
 ## Usage
 
-Import-Module .\PowerShellCheatSheet -Force
+Import-Module .\msft-security-toolbox -Force
 
 Run Show-Menu and select an option. 
 
-![usage](https://github.com/gromedev/PowerShellCheatSheet/blob/main/Assets/img/usage.png)
 
 OR
 
@@ -113,16 +45,8 @@ Examples:
 ```
 
 ## Task list
-- [ ] Sub-menu (Get-Help and Return fixes)
-- [ ] Defender: KQL stuff.
-- [ ] Az "Cheatsheet" e.g. rg mgmt; vm; etc.
-- [ ] AzureAD "Cheatsheet" e.g. user management, etc.
-- [ ] Hyper-V function
-- [ ] Develop Linux WSL
-- [ ] Password spray
-- [ ] Bruteforce (w/ rockyou.txt)
-- [ ] SmartScreen enable/disable
-- [ ] OEM/SLP locked device (https://blog.grome.dev/2021/09/windows-servertroubleshootingwindowshom.html)
+- [ ] CIS-CAT Stuff)
+
 
 
 

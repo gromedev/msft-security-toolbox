@@ -1,17 +1,17 @@
 function Show-MenuDefender {
-    Write-Output "`nDefender:"
+    Write-Output "`nAzure and Defender:"
     Write-Output "-----------------------"
 
     Write-Output "Select an option:"
-    Write-Output "1. Show Defender Status"   
-    Write-Output "2. Enable Defender"
-    Write-Output "3. Disable Defender"
-    Write-Output "4. Reset Defender to default settings"
-    Write-Output "5. Get Defender logs"
-    Write-Output "6. Check ASR Rules"
-    Write-Output "7. Test Cloud Delivered Protection"
-    Write-Output "8. Test Potenially Unwanted Applications"
-    Write-Output "9. Test SmartScreen"
+    Write-Output "1. Enable Defender"
+    Write-Output "2. Disable Defender"
+    Write-Output "3. Reset Defender to default settings"
+    Write-Output "4. Get Defender logs"
+    Write-Output "5. Search-EventTraceLog"
+    Write-Output "6. Find BitLocker recovery key"
+    #Write-Output "7. Convert-AzureAdObject"
+    Write-Output "8. Force Local Intune Sync"
+    Write-Output "9. Useful msft modules"
     #"Search-DefenderLog"
     Write-Output ""
     Write-Output "h. Get help"
@@ -20,19 +20,18 @@ function Show-MenuDefender {
 
     $selection = Read-Host "Enter your selection"
     switch ($selection) {
-        2 { Test-ASRRulesStatus}
-        2 { Enable-Defender }
-        3 { Disable-Defender }
-        4 { Reset-Defender }
-        5 { Get-DefenderLogs }
-        6 { Test-ASRRulesStatus }
-        7 { Test-CloudDeliveredProtection }
-        8 { Test-PotentiallyUnwantedApps }
-        9 { Test-SmartScreen }
+        1 { Enable-Defender }
+        2 { Disable-Defender }
+        3 { Reset-Defender }
+        4 { Get-DefenderLogs }
+        5 { Search-EventTraceLog }
+        6 { Find-BitLockerRecoveryKey }
+        7 { Convert-AzureAdObject }
+        8 { Invoke-ForceIntuneSync }
+        9 { Install-MsftModules }
         0 { Show-Menu }
         h {
             $commands = @(
-               # GOTTA DO ALL THIS
                 "Enable-Defender",
                 "Disable-Defender",
                 "Reset-Defender",
