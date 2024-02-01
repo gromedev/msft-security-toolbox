@@ -12,6 +12,3 @@ foreach ($Import in @($Public + $Private)) {
 
 Export-ModuleMember -Function $Public.Basename
 Show-Intro
-#Show-MenuCIS
-
-#Import-Module "C:\Users\tmg\OneDrive - VENZO GROUP\---- PERSONAL\msft-security-toolbox\msft-security-toolbox.psm1" -force

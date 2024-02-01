@@ -67,5 +67,3 @@ function Get-BitLockerConfiguration {
     Write-Host "Non-Encrypted Volumes: $($systemWideSummary.NonEncryptedVolumes)"
     #return $volumes
 }
-
-Get-BitLockerConfiguration

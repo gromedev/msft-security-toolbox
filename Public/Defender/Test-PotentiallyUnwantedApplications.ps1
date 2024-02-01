@@ -52,4 +52,3 @@ function Test-PotentiallyUnwantedApps {
         Write-Host "`nInvalid input. Please enter 'Yes' or 'No'."
     }
 }
-

@@ -15,18 +15,18 @@ function Get-ScheduledTasksInfo {
         $isHighPrivilege = $task.Principal.RunLevel -eq 'Highest'
 
         [PSCustomObject]@{
-            Name           = $taskName
-            Path           = $taskPath
-            LastRunTime    = $lastRunTime
-            NextRunTime    = $nextRunTime
-            Actions        = $actions -join "; "
-            RunAsUser      = $principal
-            HighPrivilege  = $isHighPrivilege
+            Name          = $taskName
+            Path          = $taskPath
+            LastRunTime   = $lastRunTime
+            NextRunTime   = $nextRunTime
+            Actions       = $actions -join "; "
+            RunAsUser     = $principal
+            HighPrivilege = $isHighPrivilege
         }
     }
+    # Execute the Scheduled Task Audit
+    Write-Host "Auditing Scheduled Tasks..."
+    $tasksInfo = Get-ScheduledTasksInfo
+    $tasksInfo | Format-Table -AutoSize
 }
 
-# Execute the Scheduled Task Audit
-Write-Host "Auditing Scheduled Tasks..."
-$tasksInfo = Get-ScheduledTasksInfo
-$tasksInfo | Format-Table -AutoSize

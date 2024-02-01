@@ -1,6 +1,4 @@
-﻿# Script to Audit RDP Configurations
-
-function Get-RDPConfiguration {
+﻿function Get-RDPConfiguration {
     $RDPRegPath = 'HKLM:\System\CurrentControlSet\Control\Terminal Server'
     $RDPNLARegPath = 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp'
 
@@ -11,9 +9,10 @@ function Get-RDPConfiguration {
         RDPEnabled = $RDPEnabled
         NLAEnabled = $NLAEnabled
     }
+    # Execute the RDP Configuration Check
+    Write-Host "Auditing RDP Configurations..."
+    $RDPConfig = Get-RDPConfiguration
+    $RDPConfig | Format-Table -AutoSize
+
 }
 
-# Execute the RDP Configuration Check
-Write-Host "Auditing RDP Configurations..."
-$RDPConfig = Get-RDPConfiguration
-$RDPConfig | Format-Table -AutoSize

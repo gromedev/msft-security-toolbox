@@ -1,7 +1,5 @@
 function Show-Intro {
     Write-Host @"
-/***
- * "+==============================================================================+`n"
  *
  *                 /**      /**  /******  /******** /********                   
  *                | ***    /*** /**__  **| **_____/|__  **__/                   
@@ -33,14 +31,12 @@ function Show-Intro {
  *             |__/ \______/  \______/ |__/|_______/  \______/ |__/  \__/       
  *                                                   
  *
- *                            
- *                          By TMG (thomas@grome.dev)"
+ *                          By TMG (thomas@grome.dev)
  *                   github.com/gromedev/msft-security-toolbox
- *
- * 
-* "+==============================================================================+`n"                                                                        
- *                                                                              
- */                                                  
+ *                                                 
 "@
+    Write-Host "Press Enter to show the menu..."
+    $null = Read-Host
+    Show-Menu
+
 }
-s
