@@ -1,4 +1,4 @@
-﻿function Get-AllSubKeys {
+﻿function Get-AllRulesASR {
     # Registry path where the rules reside
     $regPath = "HKLM:\SOFTWARE\Microsoft\PolicyManager\current\device\Defender"
 
