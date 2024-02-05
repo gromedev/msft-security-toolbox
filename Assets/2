@@ -1,0 +1,343 @@
+# Gives the user access to the loop less than 1 and higher than 20.
+
+do {
+    '3'
+    '3'
+
+    [int]$userMenuChoice = 0
+
+    while ($userMenuChoice -lt 1 -or $userMenuChoice -gt 26) {
+        Write-Host "`n`t`t"
+        Write-Host -ForegroundColor 'Green' "`t* Troubleshooting tools`t"
+        Write-Host -ForegroundColor 'Green' "------------------------------------"
+        Write-Host -ForegroundColor 'Yellow' "`t1. Ping your own host"
+        Write-Host -ForegroundColor 'Yellow' "`t2. Ping Google DNS"
+        Write-Host -ForegroundColor 'Yellow' "`t3. Test-connection"
+        Write-Host -ForegroundColor 'Yellow' "`t4. Test-netconnection on port"
+        Write-Host -ForegroundColor 'Yellow' "`t5. Traceroute"
+        Write-Host -ForegroundColor 'Yellow' "`t6. ARP network information"
+        Write-Host -ForegroundColor 'Yellow' "`t7. NSlookup"
+        Write-Host -ForegroundColor 'Yellow' "`t8. Netstat"
+        Write-Host -ForegroundColor 'Yellow' "`t9. Restart RDP services"
+        Write-Host -ForegroundColor 'Green' "`t"
+        Write-Host -ForegroundColor 'Green' "`t** Change configuration`t"
+        Write-Host -ForegroundColor 'Green' "------------------------------------"
+        Write-Host -ForegroundColor 'Yellow' "`t10. Start sconfig"
+        Write-Host -ForegroundColor 'Yellow' "`t11. Disable or enable firewall"
+        Write-Host -ForegroundColor 'Yellow' "`t12. Enable remote powershell"
+        Write-Host -ForegroundColor 'Green' "`t"
+        Write-Host -ForegroundColor 'Green' "`t*** Install Windows roles and sysinfo`t"
+        Write-Host -ForegroundColor 'Green' "-------------------------------------"
+        Write-Host -ForegroundColor 'Yellow' "`t13. Show system processes"
+        Write-Host -ForegroundColor 'Yellow' "`t14. Show running services"
+        Write-Host -ForegroundColor 'Yellow' "`t15. Install DHCP"
+        Write-Host -ForegroundColor 'Yellow' "`t16. Install Remote Desktop services"
+        Write-Host -ForegroundColor 'Yellow' "`t17. Install RSAT"
+        Write-Host -ForegroundColor 'Yellow' "`t18. System information with export"
+        Write-Host -ForegroundColor 'Yellow' "`t19. Fix Sharepoint IIS problem"
+        Write-Host -ForegroundColor 'Yellow' "`t20. Run SFC /scannow"
+        Write-Host -ForegroundColor 'Yellow' "`t21. Restore the health of your current installation with DISM"
+        Write-Host -ForegroundColor 'Yellow' "`t22. Install Active directory"
+        Write-Host -ForegroundColor 'Yellow' "`t23. Install Hyper-V"
+        Write-Host -ForegroundColor 'Yellow' "`t24. Install Remote access"
+        Write-Host -ForegroundColor 'Yellow' "`t25. Show stopped services"
+        Write-Host -ForegroundColor 'Yellow' "`t26. Start or stop a service"
+        Write-Host -ForegroundColor 'Yellow' "`t27. Install Remote Access"
+        Write-Host -ForegroundColor 'Yellow' "`t28. Remove Windows Defender"
+        Write-Host -ForegroundColor 'Yellow' "`t29. Remove SMBV1 for security"
+        Write-Host -ForegroundColor 'Yellow' "`t30. Install windows backup"
+        Write-Host -ForegroundColor 'Yellow' "`t31. Boot into DSRM"
+        Write-Host "`n`t`t"
+
+        [int]$userMenuChoice = Read-Host -Prompt "Type your option or press enter to exit"
+
+        switch ($userMenuChoice) {
+            '1' {
+                $Server = Read-Host -Prompt 'hostname'
+                $value = Read-Host -Prompt 'function'
+                ping $Server $value
+            }
+            '2' {
+                Test-Connection 8.8.8.8, 8.8.4.4
+            }
+            '3' {
+                $Server = Read-Host -Prompt 'Hostname'
+                Test-Connection $Server
+            }
+            '4' {
+                $Server = Read-Host -Prompt 'Hostname'
+                $port = Read-Host -Prompt 'port'
+                Test-NetConnection $Server -port $port
+            }
+            '5' {
+                $Server = Read-Host -Prompt 'Hostname'
+                Tracert $Server
+            }
+            '6' {
+                $Server = Read-Host -Prompt 'Hostname'
+                NSlookup $Server
+            }
+            '7' {
+                $function1 = Read-Host -Prompt 'function Example -A,-AB'
+                arp $function1
+            }
+            '8' {
+                $function2 = Read-Host -Prompt 'function Example -A,-AB'
+                netstat $function2
+            }
+            '9' {
+                Write-Host -ForegroundColor Green "Trying to restart RDP services"
+                Function Restart-RdpServices {
+                    param([string]$ComputerName = $env:computerName)
+                    Get-Service -ComputerName $ComputerName -Name 'Remote Desktop Services UserMode Port Redirector' | Stop-Service -Force -Verbose
+                    Get-Service -ComputerName $ComputerName -Name 'TermService' | Stop-Service -Force -Verbose
+                    Get-Service -ComputerName $ComputerName -Name 'TermService' | Start-Service -Verbose
+                    Get-Service -ComputerName $ComputerName -Name 'Remote Desktop Services UserMode Port Redirector' | Start-Service -Verbose
+                }
+                Write-Host -ForegroundColor Green "RDP has been restarted"
+            }
+            '10' {
+                Write-Host -ForegroundColor Green "Launching Sconfig"
+                Start-Process powershell -ArgumentList "-noexit -command sconfig"
+            }
+            '11' {
+                $on = 'True'
+                $off = 'False'
+                Write-Host -ForegroundColor Green "Change Firewalls settings"
+                $option = Read-Host -Prompt 'True or False'
+                Set-NetFirewallProfile -Profile Domain, Public, Private -Enabled $option
+                Write-Host -ForegroundColor Green "The firewall has changed to your setting to $option"
+            }
+            '12' {
+                Enable-PSRemoting -SkipNetworkProfileCheck -Force
+                Write-Host -ForegroundColor Green "Powershell Remoting is now enabled"
+            }
+            '13' {
+                Write-Host -ForegroundColor Green "Running processes are getting loaded. Press enter"
+                while (1) {
+                    Get-Process | Sort-Object -Property CPU -Descending | Select-Object -First 30; Start-Sleep -Seconds 60; Clear-Host
+                }
+            }
+            '14' {
+                Write-Host -ForegroundColor Green "System services are getting loaded......."
+                Get-Service
+                Get-WmiObject Win32_Service | Where-Object { $_.StartMode -eq 'Auto' -and $_.State -ne 'Running' } | Format-Table -Property Name, State, StartMode
+                Start-Sleep -Seconds 2
+            }
+            '15' {
+                Write-Host -ForegroundColor Green -Confirm "RDP server gets installed"
+                Add-WindowsFeature –Name RDS-RD-Server –IncludeAllSubFeature -Restart
+            }
+            '16' {
+                Write-Host -ForegroundColor Green "DHCP server gets installed"
+                Install-WindowsFeature -Confirm Install-WindowsFeature DHCP -IncludeManagementTools
+                $computer = $env:computername
+                $dns = Read-Host -Prompt 'DNS name'
+                $ipAddress = Read-Host -Prompt 'IPAddress'
+                Add-DhcpServerInDC -DnsName $dns -IPAddress $ipAddress
+                Get-DhcpServerInDC
+                Set-ItemProperty –Path registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ServerManager\Roles\12 –Name ConfigurationState –Value 2
+                $name = Read-Host -Prompt 'Name of your scope'
+                $scope = Read-Host -Prompt 'scope ID'
+                $start = Read-Host -Prompt 'StartRange'
+                $end = Read-Host -Prompt 'EndRange'
+                $name = Read-Host -Prompt 'Name of your scope'
+                $subnet = Read-Host -Prompt 'Enter your subnet'
+                $dnsserver = Read-Host -Prompt 'Enter your subnet'
+                Add-DhcpServerv4Scope -Name "$name" -StartRange $start -EndRange $end -SubnetMask $subnet -State Active
+                Set-DhcpServerv4OptionValue -OptionID 3 -Value $start -ScopeID $scope -ComputerName $computer$dns
+                Set-DhcpServerv4OptionValue -DnsDomain $dns -DnsServer $dnsserver
+            }
+            '17' {
+                Write-Host -ForegroundColor Green "RSAT server gets installed"
+                $web = Invoke-WebRequest https://www.microsoft.com/en-us/download/confirmation.aspx?id=45520
+                $MachineOS = (Get-WmiObject Win32_OperatingSystem).Name
+                IF ($MachineOS -like "*Microsoft Windows Server*") {
+                    Add-WindowsFeature -Confirm RSAT-AD-PowerShell
+                }
+                IF ($ENV:PROCESSOR_ARCHITECTURE -eq "AMD64") {
+                    Write-host "x64 Detected" -foregroundcolor yellow
+                    $Link = (($web.AllElements | Where-Object class -eq "multifile-failover-url").innerHTML[0].split(" ") | Select-String href).ToString().Replace("href=", "").Trim('"')
+                }
+                ELSE {
+                    Write-host "x86 Detected" -foregroundcolor yellow
+                    $Link = (($web.AllElements | Where-Object class -eq "multifile-failover-url").innerHTML[1].split(" ") | Select-String href).ToString().Replace("href=", "").Trim('"')
+                }
+                $DLPath = ($ENV:USERPROFILE) + "\Downloads\" + ($Link.split("/")[8])
+                Write-Host "Downloading RSAT MSU file" -foregroundcolor yellow
+                Start-BitsTransfer -Source $Link -Destination $DLPath
+                $Authenticatefile = Get-AuthenticodeSignature $DLPath
+                $WusaArguments = $DLPath + " /quiet"
+                if ($Authenticatefile.status -ne "valid") { Write-Host "Can't confirm download, exiting"; break }
+                Write-Host "Installing RSAT for Windows 10 - please wait" -foregroundcolor yellow
+                Start-Process -FilePath "C:\Windows\System32\wusa.exe" -ArgumentList $WusaArguments -Wait
+            }
+            '18' {
+                Write-Host -ForegroundColor Green -confirm "Gathering system information"
+                function Get-ComputerInformation {
+                    [cmdletbinding()]
+                    param(
+                        [Parameter()]
+                        [string]
+                        $computerName
+                    )
+                    if (!$computerName) {
+                        $osVer = Get-CimInstance Win32_OperatingSystem | Select-Object Caption | ForEach-Object { $_.Caption }
+                        $installDate = Get-CimInstance Win32_OperatingSystem | Select-Object InstallDate | ForEach-Object { $_.InstallDate }
+                        $servicePackVer = Get-CimInstance Win32_OperatingSystem | Select-Object ServicePackMajorVersion | ForEach-Object { $_.ServicePackMajorVersion }
+                        $osArch = Get-CimInstance Win32_OperatingSystem | Select-Object OSArchitecture | ForEach-Object { $_.OSArchitecture }
+                        $bootDevice = Get-CimInstance Win32_OperatingSystem | Select-Object BootDevice | ForEach-Object { $_.BootDevice }
+                        $buildNumber = Get-CimInstance Win32_OperatingSystem | Select-Object BuildNumber | ForEach-Object { $_.BuildNumber }
+                        $osName = Get-CimInstance Win32_OperatingSystem | Select-Object CSName | ForEach-Object { $_.CSName }
+                        $hostName = Get-WmiObject -Class Win32_NetworkAdapterConfiguration -Filter IPEnabled=TRUE -ComputerName .
+                    }
+                    else {
+                    }
+                    $reportObject = [PSCustomObject]@{
+                        'OS Version'           = $osVer
+                        'Install Date'         = $installDate
+                        'Service Pack Version' = $servicePackVer
+                        'OS Architecture'      = $osArch
+                        'Boot Device'          = $bootDevice
+                        'Build Number'         = $buildNumber
+                        'Host Name'            = $hostName
+                    }
+                    return $reportObject
+                }
+                $compInfo = Get-ComputerInformation
+                $compInfo | Format-List
+                Write-Host `n"Detailed Networking Information:"`n
+                Write-Host ($compInfo.'Host Name' | Out-String)
+                $reportPath = 'C:\reports'
+                if (test-path $reportPath) {
+                    Write-Host "Folder found!"
+                }
+                else {
+                    Write-Host "Folder NOT FOUND!"
+                    Write-Host "Folder has been created"
+                    New-Item -ItemType directory -Path $reportPath
+                }
+                $compInfo | Export-CSV -Delimiter ";" "$reportPath\system report.csv" -NoTypeInformation -Encoding UTF8
+            }
+            '19' {
+                Write-Host -ForegroundColor Green "applying hot fix for Sharepoint"
+                Copy-Item -Path "$($ENV:SystemRoot)\System32\ServerManager.exe" `
+                -Destination "$($ENV:SystemRoot)\System32\ServerManagerCmd.exe" -Force
+                Add-WindowsFeature NET-WCF-HTTP-Activation45, NET-WCF-TCP-Activation45, NET-WCF-Pipe-Activation45
+                Add-WindowsFeature Net-Framework-Features, Web-Server, Web-WebServer, `
+                Web-Common-Http, Web-Static-Content, Web-Default-Doc, Web-Dir-Browsing, `
+                Web-Http-Errors, Web-App-Dev, Web-Asp-Net, Web-Net-Ext, Web-ISAPI-Ext, `
+                Web-ISAPI-Filter, Web-Health, Web-Http-Logging, Web-Log-Libraries, Web-Request-Monitor, `
+                Web-Http-Tracing, Web-Security, Web-Basic-Auth, Web-Windows-Auth, Web-Filtering, `
+                Web-Digest-Auth, Web-Performance, Web-Stat-Compression, Web-Dyn-Compression, `
+                Web-Mgmt-Tools, Web-Mgmt-Console, Web-Mgmt-Compat, Web-Metabase, Application-Server, `
+                AS-Web-Support, AS-TCP-Port-Sharing, AS-WAS-Support, AS-HTTP-Activation, `
+                AS-TCP-Activation, AS-Named-Pipes, AS-Net-Framework, WAS, WAS-Process-Model, `
+                WAS-NET-Environment, WAS-Config-APIs, Web-Lgcy-Scripting, Windows-Identity-Foundation, `
+                Server-Media-Foundation, Xps-Viewer
+            }
+            '20' {
+                Write-Host -ForegroundColor Green "Restore system health"
+                SFC /SCANNOW
+            }
+            '21' {
+                Write-Host -ForegroundColor Green "Restore system health"
+                DISM /ONLINE /CLEANUP-IMAGE /RESTOREHEALTH
+            }
+            '22' {
+                Import Server-Manager
+                Write-Host -ForegroundColor Green "Install active directory"
+                install-windowsfeature AD-Domain-Services
+                Import-Module ADDSDeployment
+                Install-ADDSForest
+            }
+            '23' {
+                Write-Host -ForegroundColor Green "Hyper-V"
+                Add-WindowsFeature –Name Hyper-V -IncludeAllSubFeature -IncludeManagementTools
+            }
+            '24' {
+                Install-WindowsFeature RemoteAccess -IncludeManagementTools
+            }
+            '25' {
+                Get-WmiObject -Class Win32_Service | Select-Object Name, State, StartMode | Where-Object { $_.State -ne "Running" -and $_.StartMode -eq "Auto" } | Format-Table -Property Name, State, StartMode
+            }
+            '26' {
+                $choice = Read-Host -Prompt 'Start,Stop,Restart'
+                $Servicename = Read-Host -Prompt 'Service name'
+                If ( $choice -eq '') { Write-host -ForegroundColor "Red" "Invalid request" }
+                If ( $choice -eq 'Start') {
+                    Get-Service -Name $Servicename | Start-Service -Verbose
+                }
+                If ( $choice -eq 'Stop') {
+                    Get-Service -Name $Servicename | Stop-Service -Force -Verbose
+                }
+                If ( $choice -eq 'Restart') {
+                    Get-Service -Name $Servicename | Stop-Service -Force -Verbose
+                    Get-Service -Name $Servicename | Start-Service -Verbose
+                    Write-Host -ForegroundColor Green -confirm "$service has been $choice"
+                }
+            }
+            '27' {
+                Write-Host -ForegroundColor Green -confirm "Install Remote access VPN"
+                Install-WindowsFeature RemoteAccess -IncludeManagementTools -confirm
+            }
+            '28' {
+                Remove-WindowsFeature Windows-Defender, Windows-Defender-GUI
+            }
+            '29' {
+                Disable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol #Remove SMBv1 Client Support
+            }
+            '30' {
+                Add-WindowsFeature Windows-Server-Backup
+            }
+            '31' {
+                [int]$userMenuChoice1 = 0
+                while ( $userMenuChoice1 -lt 1 -or $userMenuChoice1 -gt 26) {
+                    Write-Host `t""`t
+                    Write-Host -ForegroundColor 'Green'`t"Change Boot"`t
+                    Write-Host `t""`t
+                    Write-Host -ForegroundColor 'Yellow'`t"1. BCDEdit /bootdebug"
+                    Write-Host -ForegroundColor "Yellow"`t"2. BCDEdit /dbgsettings"
+                    Write-Host -ForegroundColor "Yellow"`t"3. BCDEdit /debug"
+                    Write-Host -ForegroundColor "Yellow"`t"4. BCDEdit /deletevalue"
+                    Write-Host -ForegroundColor "Yellow"`t"5. BCDEdit /emssettings"
+                    Write-Host -ForegroundColor "Yellow"`t"6. BCDEdit /set"
+                    Write-Host -ForegroundColor "Yellow"`t"7. BCDEdit /set safeboot "
+                    Write-Host `t""`t
+                    [int]$userMenuChoice1 = Read-Host -Prompt ` "
+Type your option or press enter to exit"
+                    switch ($userMenuChoice1) {
+                        '1' {
+                            BCDEdit /bootdebug
+                            restart-computer -Confirm
+                        }
+                        '2' {
+                            BCDEdit /dbgsettings
+                            restart-computer -Confirm
+                        }
+                        '3' {
+                            BCDEdit /debug
+                            restart-computer -Confirm
+                        }
+                        '4' {
+                            BCDEdit /deletevalue
+                            restart-computer -Confirm
+                        }
+                        '5' {
+                            BCDEdit /emssettings
+                            restart-computer -Confirm
+                        }
+                        '6' {
+                            BCDEdit /set
+                            restart-computer -Confirm
+                        }
+                        '7' {
+                            BCDEdit /set safeboot
+                            restart-computer -Confirm
+                        }
+                    }
+                }
+            }
+        }
+    }
+} until ($userMenuChoice -eq "0")

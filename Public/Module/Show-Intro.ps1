@@ -38,5 +38,4 @@ function Show-Intro {
     Write-Host "Press Enter to show the menu..."
     $null = Read-Host
     Show-Menu
-
 }

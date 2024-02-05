@@ -1,7 +1,7 @@
 <#
 This script automates the tests found here: https://demo.wd.microsoft.com/
 #>
-function Test-SmartScreen {
+function Test-SmartScreenURL {
     Write-Host "`nMicrosoft Defender SmartScreen URL Reputation" -ForegroundColor white
     Write-Host "--------------------------"
     Write-Host "`nImportant: The test pages is not malicious, it is just a harmless file simulating a virus." -ForegroundColor Red

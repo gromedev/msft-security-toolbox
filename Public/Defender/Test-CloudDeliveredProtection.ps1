@@ -8,6 +8,7 @@ function Test-CloudDeliveredProtection {
     Write-Host "If the file executes, or if you see it blocked by Microsoft Defender SmartScreen it means that cloud-delivered protection is not working and you should go to configure and validate network connections for Microsoft Defender Antivirus to learn more."
     Write-Host "`nExample: Failed to block (but stopped by Microsoft Defender SmartScreen)."
 
+    
     $response = Read-Host "Do you wish to continue with the test? (Yes/No)"
     if ($response -eq "Yes") {
         $url = "https://wdtestgroundstorage.blob.core.windows.net/public/validate/validatecloud.exe"

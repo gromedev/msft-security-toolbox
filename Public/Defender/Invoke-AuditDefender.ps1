@@ -1,8 +1,11 @@
 function Invoke-DefenderAudit {
     Test-DefenderSettings
     Test-ASRRulesStatus
-    Get-BitLockerConfiguration
+    Test-SmartScreenStatus
     Test-CloudDeliveredProtection
     Test-PotentiallyUnwantedApplications
-    Test-SmartScreen
+    Test-SmartScreenURL
+    Get-BitLockerConfiguration
+    #Get-MpPreference | Select *NetworkProtection* | Format-List
+
 }

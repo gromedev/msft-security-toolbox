@@ -95,6 +95,7 @@ function Invoke-CIS {
     $results += Test-RegPathCIS -settingPath "HKLM:\SOFTWARE\Microsoft\PolicyManager\current\device\Defender" -settingValueName "DisableBehaviorMonitoring" -expectedValue 0 -baseMessage "18.9.47.8.3 (L1) Ensure 'Turn off behavior monitoring' is set to 'Disabled'"
     $results += Test-RegPathCIS -settingPath "HKLM:\SOFTWARE\Microsoft\PolicyManager\current\device\Defender" -settingValueName "DisableRemovableDriveScanning" -expectedValue 0 -baseMessage "18.9.47.10 (L1) Ensure 'Turn off removable drive scanning' is set to 'Disabled'"
     $results += Test-RegPathCIS -settingPath "HKLM:\SOFTWARE\Microsoft\PolicyManager\current\device\Defender" -settingValueName "DisableAntiSpyware" -expectedValue 0 -baseMessage "18.9.47.15 (L1) Ensure 'Turn off Microsoft Defender AntiVirus' is set to 'Disabled'"
+    ###
     $results += Test-RegPathCIS -settingPath "HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\MpEngine" -settingValueName "MpEnablePus" -expectedValue 1 -baseMessage "Ensure 'PUAProtection' is set to 'Enabled'"
     $results += Test-RegPathCIS -settingPath "HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" -settingValueName "PasswordLess" -expectedValue 0 -baseMessage "Ensure 'Configure Passwordless RDP logon' is set to 'Not Configured'"
     

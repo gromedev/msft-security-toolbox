@@ -1,5 +1,5 @@
 function Test-DefenderSettings() {
-    Write-Host "Testing Windows Defender AV settings"
+    Write-Host "Getting Windows Defender AV settings" -ForegroundColor Yellow
 
     # Retrieve current preferences
     $preferences = Get-MpPreference
@@ -7,6 +7,7 @@ function Test-DefenderSettings() {
     # Check each setting
     $settings = @{
         "Real-time monitoring" = $preferences.DisableRealtimeMonitoring
+        "Potentially Unwanted Applications" = $preferences.PUAProtection
         "Archive scanning" = $preferences.DisableArchiveScanning
         "Behavior monitoring" = $preferences.DisableBehaviorMonitoring
         "Intrusion prevention system" = $preferences.DisableIntrusionPreventionSystem
@@ -28,4 +29,6 @@ function Test-DefenderSettings() {
             Write-Host "$($setting.Key) status: $($setting.Value)"
         }
     }
+    Write-Host "Getting Defender Network Settings" -ForegroundColor Yellow
+    Get-MpPreference | Select *NetworkProtection* | Format-List
 }
