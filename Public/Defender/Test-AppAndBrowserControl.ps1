@@ -8,7 +8,11 @@ function Test-PotentiallyUnwantedApps {
     Write-Host ""
     Write-Host "If the file executes, or if you see it blocked by Microsoft Defender SmartScreen, it means that cloud-delivered protection is not working, and you should go to configure and validate network connections for Microsoft Defender Antivirus to learn more."
     Write-Host "`nExample: If successful, you should see that the file was blocked."
+$PUAProtectionStatus = Get-MpPreference | Select-Object -ExpandProperty PUAProtection
 
+if ($PUAProtectionStatus -ne 1) {
+    Write-Host "PUAProtection is either disabled or not set!" -ForegroundColor Red
+}
     $response = Read-Host "`nDo you wish to continue with the test? (Yes/No)"
     if ($response -eq "Yes") {
         $url = "http://amtso.eicar.org/PotentiallyUnwanted.exe"
